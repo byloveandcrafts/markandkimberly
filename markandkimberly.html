@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mark Anthony & Kimberly | November 8, 2026</title>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Mark Anthony & Kimberly — November 8, 2026"/>
+<meta property="og:description" content="You're invited to the wedding of Mark Anthony & Kimberly. November 8, 2026 · Calaruega, Nasugbu, Batangas. #MarkAtKimHanggangGubat"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display+SC:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  --bg:        #faf7f2;
+  --bg2:       #f3ede3;
+  --bg3:       #ede5d8;
+  --surface:   #ffffff;
+  --gold:      #a07840;
+  --gold2:     #c4974e;
+  --gold-pale: #e8d5a8;
+  --dark:      #2c2216;
+  --mid:       #6b5540;
+  --text:      #3a2c1e;
+  --text-dim:  #8a7060;
+  --accent:    #b87050;
+  --sage:      #7a8e6c;
+  --border:    rgba(160,120,64,0.22);
+  --border2:   rgba(160,120,64,0.1);
+
+  --display:  'Playfair Display', serif;
+  --sc:       'Playfair Display SC', serif;
+  --serif:    'Cormorant Garamond', serif;
+  --sans:     'Jost', sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--serif);overflow-x:hidden;}
+
+/* ════════════════════════════════════════
+   INTRO CINEMATIC
+════════════════════════════════════════ */
+#intro{
+  position:fixed;inset:0;z-index:9999;
+  background:#0e0b08;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+
+/* film grain overlay */
+#intro::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity:.5;animation:grainShift 0.12s steps(1) infinite;
+}
+@keyframes grainShift{0%{transform:translate(0,0)}25%{transform:translate(-3%,-2%)}50%{transform:translate(2%,3%)}75%{transform:translate(-1%,2%)}100%{transform:translate(3%,-1%)}}
+
+/* vignette */
+#intro::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 40%,rgba(0,0,0,0.75) 100%);
+}
+
+/* letterbox bars */
+.intro-bar{
+  position:absolute;left:0;right:0;height:80px;
+  background:#000;z-index:5;transition:none;
+}
+.intro-bar.top{top:0;transform:translateY(0);animation:barRevealTop 2.2s cubic-bezier(.77,0,.18,1) 0.4s forwards;}
+.intro-bar.bottom{bottom:0;transform:translateY(0);animation:barRevealBottom 2.2s cubic-bezier(.77,0,.18,1) 0.4s forwards;}
+@keyframes barRevealTop{to{transform:translateY(-100%)}}
+@keyframes barRevealBottom{to{transform:translateY(100%)}}
+
+/* background light leak */
+.intro-light{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 60% at 50% 48%,rgba(180,140,80,0.08) 0%,transparent 70%);
+  animation:lightPulse 4s ease-in-out infinite alternate;
+}
+@keyframes lightPulse{to{opacity:0.4;}}
+
+/* main content */
+.intro-wrap{
+  position:relative;z-index:6;text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+  padding:0 32px;
+}
+
+.intro-line1{
+  font-family:var(--sc);font-size:9px;letter-spacing:.5em;
+  color:rgba(200,168,100,0.5);text-transform:uppercase;
+  opacity:0;transform:translateY(14px);
+  animation:fadeUp 1s ease 1.4s forwards;
+  margin-bottom:36px;
+}
+
+.intro-monogram{
+  position:relative;width:160px;height:160px;margin-bottom:36px;
+  opacity:0;animation:fadeIn 1.2s ease 1.6s forwards;
+}
+.intro-mono-ring{position:absolute;inset:0;}
+.intro-mono-ring circle{stroke-dasharray:502;stroke-dashoffset:502;animation:drawCircle 2s ease 1.8s forwards;}
+@keyframes drawCircle{to{stroke-dashoffset:0}}
+.intro-mono-inner{
+  position:absolute;inset:20px;border-radius:50%;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(200,168,100,0.2);
+  display:flex;align-items:center;justify-content:center;
+}
+.intro-mono-text{
+  font-family:var(--display);font-size:36px;font-style:italic;
+  color:rgba(240,220,170,0.9);letter-spacing:.02em;
+}
+
+.intro-names{
+  font-family:var(--display);font-style:italic;
+  font-size:clamp(40px,9vw,64px);font-weight:400;
+  color:#f5edd8;line-height:1.05;letter-spacing:.01em;
+  opacity:0;transform:translateY(18px);
+  animation:fadeUp 1.1s ease 2s forwards;
+}
+.intro-amp{
+  font-family:var(--sc);font-size:10px;letter-spacing:.45em;
+  color:rgba(200,168,100,0.7);display:block;margin:10px 0;
+}
+
+.intro-rule{
+  width:160px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(200,168,100,0.6),transparent);
+  margin:22px auto 20px;
+  opacity:0;animation:fadeIn 1s ease 2.5s forwards;
+}
+
+.intro-date{
+  font-family:var(--sc);font-size:8.5px;letter-spacing:.38em;
+  color:rgba(200,168,100,0.45);text-transform:uppercase;margin-bottom:44px;
+  opacity:0;animation:fadeUp 1s ease 2.6s forwards;
+}
+
+.intro-btn{
+  display:inline-block;padding:14px 52px;border:1px solid rgba(200,168,100,0.4);
+  font-family:var(--sc);font-size:8px;letter-spacing:.42em;
+  color:rgba(200,168,100,0.9);text-transform:uppercase;background:transparent;cursor:pointer;
+  position:relative;overflow:hidden;
+  opacity:0;animation:fadeIn 1s ease 3s forwards;
+  transition:border-color .3s,color .3s;
+}
+.intro-btn::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(200,168,100,0.1);
+  transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+}
+.intro-btn:hover::before{transform:scaleX(1);}
+.intro-btn:hover{border-color:rgba(200,168,100,0.8);}
+
+.intro-hint{
+  font-family:var(--sc);font-size:7.5px;letter-spacing:.3em;
+  color:rgba(200,168,100,0.2);margin-top:14px;
+  opacity:0;animation:fadeIn 1s ease 3.3s forwards,blink 2.8s ease-in-out 3.3s infinite;
+}
+@keyframes blink{0%,100%{opacity:.2}50%{opacity:.55}}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{to{opacity:1}}
+
+#intro.hiding{animation:cinematicOut 0.9s ease forwards;}
+@keyframes cinematicOut{
+  0%{opacity:1}
+  40%{opacity:1;filter:brightness(2)}
+  100%{opacity:0;pointer-events:none;filter:brightness(0)}
+}
+
+/* ════════════════════════════════════════
+   NAV
+════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 44px;
+  background:rgba(250,247,242,0.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border2);transition:all .3s;
+}
+.nav-left,.nav-right{display:flex;align-items:center;gap:30px;}
+.nav-center{font-family:var(--display);font-size:20px;font-style:italic;color:var(--dark);letter-spacing:.02em;}
+nav a{
+  font-family:var(--sc);font-size:8px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--text-dim);text-decoration:none;
+  transition:color .2s;padding-bottom:3px;border-bottom:1px solid transparent;
+}
+nav a:hover{color:var(--gold);border-bottom-color:rgba(160,120,64,0.4);}
+@media(max-width:700px){
+  nav{padding:12px 18px;}
+  .nav-left,.nav-right{gap:14px;}
+  nav a{font-size:7px;letter-spacing:.15em;}
+  .nav-center{font-size:17px;}
+}
+@media(max-width:440px){.nav-left,.nav-right{display:none;}nav{justify-content:center;}}
+
+/* ════════════════════════════════════════
+   HERO SLIDESHOW — photo as background
+════════════════════════════════════════ */
+#hero{
+  position:relative;min-height:100vh;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Each slide = full-bleed background panel */
+.slide{
+  position:absolute;inset:0;opacity:0;
+  transition:opacity 1.6s ease;
+}
+.slide.active{opacity:1;}
+
+.slide-bg{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+}
+/* Gradient overlays per slide for text legibility */
+.slide:nth-child(1) .slide-bg{background:linear-gradient(160deg,#e8ddd0 0%,#d4c5b0 50%,#c5b49a 100%);}
+.slide:nth-child(2) .slide-bg{background:linear-gradient(140deg,#e0d8c8 0%,#cbbfa8 50%,#b8a88e 100%);}
+.slide:nth-child(3) .slide-bg{background:linear-gradient(170deg,#d8e0d0 0%,#c4d0b8 50%,#a8beA0 100%);}
+.slide:nth-child(4) .slide-bg{background:linear-gradient(150deg,#e8d8c8 0%,#d0bea8 50%,#baa08a 100%);}
+
+/* Texture grid on slides */
+.slide-texture{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(45deg,transparent,transparent 32px,rgba(160,120,64,0.04) 32px,rgba(160,120,64,0.04) 33px),
+    repeating-linear-gradient(-45deg,transparent,transparent 32px,rgba(92,68,36,0.03) 32px,rgba(92,68,36,0.03) 33px);
+}
+
+/* Dark gradient vignette so text reads well */
+.slide-vignette{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 90% 90% at 50% 50%,rgba(44,34,22,0.12) 0%,rgba(44,34,22,0.55) 100%);
+}
+
+/* Hero text overlay — sits above all slides */
+.hero-content{
+  position:relative;z-index:10;text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+  padding:120px 24px 100px;pointer-events:none;
+  width:100%;max-width:800px;
+}
+
+.hero-eyebrow{
+  font-family:var(--sc);font-size:9px;letter-spacing:.45em;
+  color:rgba(245,237,220,0.75);margin-bottom:24px;
+  text-shadow:0 1px 8px rgba(0,0,0,0.3);
+}
+.hero-names{
+  font-family:var(--display);font-style:italic;
+  font-size:clamp(56px,13vw,100px);font-weight:400;
+  color:#faf5ec;line-height:.95;letter-spacing:.01em;
+  text-shadow:0 4px 40px rgba(44,34,22,0.35);
+}
+.hero-amp{
+  display:block;font-family:var(--sc);font-size:11px;
+  letter-spacing:.42em;color:var(--gold-pale);margin:14px 0;
+}
+.hero-rule{
+  display:flex;align-items:center;gap:16px;
+  width:min(300px,65%);margin:22px auto;
+}
+.hero-rule::before,.hero-rule::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(232,213,168,0.6),transparent);
+}
+.hero-rule span{color:var(--gold-pale);font-size:10px;}
+.hero-hashtag{
+  font-family:var(--display);font-style:italic;
+  font-size:clamp(15px,2.2vw,19px);
+  color:rgba(232,213,168,0.85);margin-bottom:12px;
+  text-shadow:0 2px 12px rgba(0,0,0,0.3);
+}
+.hero-date{
+  font-family:var(--sc);font-size:9px;letter-spacing:.36em;
+  color:rgba(232,213,168,0.65);
+  text-shadow:0 1px 8px rgba(0,0,0,0.25);
+}
+
+/* Corner frames */
+.hc{position:absolute;width:100px;height:100px;pointer-events:none;z-index:11;}
+.hc.tl{top:72px;left:18px;}
+.hc.tr{top:72px;right:18px;transform:scaleX(-1);}
+.hc.bl{bottom:24px;left:18px;transform:scaleY(-1);}
+.hc.br{bottom:24px;right:18px;transform:scale(-1,-1);}
+
+/* Slide arrows */
+.s-prev,.s-next{
+  position:absolute;top:50%;z-index:12;transform:translateY(-50%);
+  width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(232,213,168,0.3);background:rgba(44,34,22,0.2);
+  cursor:pointer;pointer-events:all;transition:all .25s;backdrop-filter:blur(4px);
+}
+.s-prev{left:18px;}.s-next{right:18px;}
+.s-prev:hover,.s-next:hover{border-color:rgba(232,213,168,0.7);background:rgba(44,34,22,0.35);}
+.s-prev span,.s-next span{font-family:var(--display);font-size:18px;color:#faf5ec;line-height:1;font-style:normal;}
+
+/* Slide dots */
+.s-dots{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;gap:10px;z-index:12;pointer-events:all;
+}
+.s-dot{width:30px;height:2px;background:rgba(232,213,168,0.3);cursor:pointer;transition:all .3s;}
+.s-dot.active{background:var(--gold-pale);width:46px;}
+
+/* Slide caption bottom-right */
+.s-caption{
+  position:absolute;bottom:54px;right:28px;z-index:12;
+  font-family:var(--display);font-size:11px;font-style:italic;
+  color:rgba(232,213,168,0.4);pointer-events:none;
+}
+
+/* ════════════════════════════════════════
+   PHOTO STRIP
+════════════════════════════════════════ */
+.strip-wrap{
+  position:relative;overflow:hidden;padding:6px 0;
+  background:var(--bg2);
+  border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
+}
+.strip{display:flex;gap:6px;width:max-content;animation:stripRoll 40s linear infinite;}
+.strip:hover{animation-play-state:paused;}
+@keyframes stripRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.strip-item{width:230px;height:155px;flex-shrink:0;overflow:hidden;position:relative;}
+.strip-item::after{
+  content:attr(data-label);position:absolute;inset:0;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding-bottom:10px;
+  background:linear-gradient(transparent 55%,rgba(44,34,22,0.45));
+  font-family:var(--display);font-style:italic;font-size:12px;
+  color:rgba(245,237,220,0.8);letter-spacing:.04em;
+  opacity:0;transition:opacity .35s;
+}
+.strip-item:hover::after{opacity:1;}
+.strip-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.strip-ph span{font-family:var(--display);font-size:26px;font-style:italic;color:rgba(160,120,64,0.25);}
+
+/* ════════════════════════════════════════
+   SHARED
+════════════════════════════════════════ */
+section{padding:96px 24px;text-align:center;max-width:100%;}
+.inner{max-width:960px;margin:0 auto;width:100%;}
+
+.s-label{
+  font-family:var(--sc);font-size:8.5px;letter-spacing:.45em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block;
+}
+.s-title{
+  font-family:var(--display);font-style:italic;
+  font-size:clamp(34px,5.5vw,56px);
+  color:var(--dark);line-height:1.1;margin-bottom:16px;
+}
+.s-body{
+  font-family:var(--serif);font-size:20px;
+  color:var(--text-dim);line-height:1.9;max-width:620px;margin:0 auto;
+}
+.divider{
+  display:flex;align-items:center;gap:14px;
+  margin:28px auto;max-width:480px;
+}
+.divider::before,.divider::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
+}
+.divider span{color:var(--gold);font-size:10px;letter-spacing:3px;}
+
+.alt-bg{background:var(--bg2);max-width:100%;padding:96px 24px;}
+.alt-bg>.inner{max-width:960px;margin:0 auto;}
+.alt-bg3{background:var(--bg3);max-width:100%;padding:96px 24px;}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:600px){section,.alt-bg,.alt-bg3{padding:68px 18px;}}
+
+/* ════════════════════════════════════════
+   OUR STORY — full-width split with offset
+════════════════════════════════════════ */
+#story{background:var(--bg);padding:0;overflow:hidden;}
+.story-split{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;}
+.story-img-col{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,var(--bg3) 0%,var(--bg2) 100%);
+}
+.story-img-col::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,transparent 70%,var(--bg) 100%);
+}
+.story-ph{
+  width:100%;height:100%;min-height:600px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,#e8ddd0,#d4c5b0);
+}
+.story-ph span{font-family:var(--display);font-size:80px;font-style:italic;color:rgba(160,120,64,0.2);}
+.story-text-col{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 64px 80px 48px;position:relative;
+}
+.story-text-col::before{
+  content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;
+  background:linear-gradient(180deg,transparent,var(--border),transparent);
+}
+.story-body{
+  font-family:var(--serif);font-size:19.5px;
+  color:var(--text-dim);line-height:1.95;margin-top:22px;
+}
+.story-body p+p{margin-top:18px;}
+.story-sig{
+  font-family:var(--display);font-size:28px;font-style:italic;
+  color:var(--accent);margin-top:32px;
+}
+@media(max-width:760px){
+  .story-split{grid-template-columns:1fr;}
+  .story-img-col{min-height:340px;}
+  .story-img-col::after{background:linear-gradient(to bottom,transparent 70%,var(--bg) 100%);}
+  .story-text-col{padding:48px 24px;}
+  .story-text-col::before{display:none;}
+}
+
+/* ════════════════════════════════════════
+   STORY CHAPTERS
+════════════════════════════════════════ */
+.story-chapters{background:var(--bg2);padding:96px 24px;overflow:hidden;position:relative;}
+.story-chapters::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(160,120,64,0.03) 60px,rgba(160,120,64,0.03) 61px);}
+.story-chapters-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
+.chapter-header{text-align:center;margin-bottom:72px;}
+.story-chapters-inner::before{content:'';position:absolute;left:50%;top:200px;bottom:120px;width:1px;background:linear-gradient(180deg,transparent,var(--border) 8%,var(--border) 92%,transparent);transform:translateX(-50%);}
+.chapter-row{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:52px;align-items:flex-start;}
+.chapter-row-alt .chapter-card{order:1;}
+.chapter-row-alt .chapter-year-col{order:2;}
+.chapter-year-col{display:flex;flex-direction:column;align-items:center;padding-top:24px;position:relative;}
+.chapter-year{font-family:var(--display);font-size:13px;font-style:italic;color:var(--gold);letter-spacing:.06em;background:var(--bg2);padding:6px 16px;border:1px solid var(--border);position:relative;z-index:2;white-space:nowrap;}
+.chapter-year-line{width:1px;flex:1;min-height:40px;background:linear-gradient(180deg,var(--border),transparent);}
+.chapter-card{background:var(--surface);border:1px solid var(--border2);padding:32px 36px;position:relative;transition:box-shadow .3s;}
+.chapter-card:hover{box-shadow:0 8px 32px rgba(44,34,22,0.08);}
+.chapter-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);}
+.chapter-row:not(.chapter-row-alt) .chapter-card::after{content:'';position:absolute;top:32px;right:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:8px solid var(--surface);}
+.chapter-row-alt .chapter-card::after{content:'';position:absolute;top:32px;left:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:8px solid var(--surface);}
+.chapter-icon{font-size:26px;margin-bottom:12px;display:block;}
+.chapter-title{font-family:var(--display);font-size:21px;font-style:italic;color:var(--dark);margin-bottom:14px;line-height:1.3;}
+.chapter-text{font-family:var(--serif);font-size:18.5px;color:var(--text-dim);line-height:1.9;}
+.chapter-text em{font-style:italic;color:var(--mid);}
+.chapter-text strong{font-weight:600;color:var(--dark);}
+.chapter-closing{text-align:center;padding:52px 32px 0;}
+.chapter-closing-rule{width:min(360px,80%);height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+.chapter-closing-tagalog{font-family:var(--display);font-size:clamp(17px,2.5vw,22px);font-style:italic;color:var(--accent);line-height:1.85;letter-spacing:.01em;}
+@media(max-width:700px){
+  .story-chapters-inner::before{display:none;}
+  .chapter-row,.chapter-row-alt{grid-template-columns:1fr;gap:16px;}
+  .chapter-row-alt .chapter-card{order:2;}.chapter-row-alt .chapter-year-col{order:1;}
+  .chapter-year-col{flex-direction:row;align-items:center;gap:12px;padding-top:0;}
+  .chapter-year-line{width:40px;height:1px;flex:none;min-height:0;background:linear-gradient(90deg,var(--border),transparent);}
+  .chapter-card::after,.chapter-row-alt .chapter-card::after{display:none;}
+  .chapter-card{padding:24px 20px;}
+}
+
+/* ════════════════════════════════════════
+   COUNTDOWN — centered bold panel
+════════════════════════════════════════ */
+#countdown{
+  background:var(--dark);padding:96px 24px;text-align:center;
+  position:relative;overflow:hidden;
+}
+#countdown::before{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(200,168,100,0.04) 28px,rgba(200,168,100,0.04) 29px),
+    repeating-linear-gradient(-45deg,transparent,transparent 28px,rgba(200,168,100,0.03) 28px,rgba(200,168,100,0.03) 29px);
+}
+#countdown::after{content:'';position:absolute;inset:20px;border:1px solid rgba(200,168,100,0.1);pointer-events:none;}
+#countdown .s-label{color:rgba(200,168,100,0.55);position:relative;z-index:1;}
+#countdown .s-title{color:#f5edd8;position:relative;z-index:1;}
+.cd-grid{
+  display:flex;align-items:center;justify-content:center;
+  gap:44px;flex-wrap:wrap;margin-top:52px;position:relative;z-index:1;
+}
+.cd-block{text-align:center;min-width:88px;}
+.cd-num{
+  font-family:var(--display);font-size:80px;font-weight:400;
+  color:#f5edd8;line-height:1;display:block;
+}
+.cd-unit{
+  font-family:var(--sc);font-size:8px;letter-spacing:.3em;
+  color:rgba(200,168,100,0.55);margin-top:10px;display:block;
+}
+.cd-sep{font-size:24px;color:rgba(200,168,100,0.25);align-self:flex-start;margin-top:20px;}
+@media(max-width:600px){.cd-num{font-size:54px;}.cd-sep{display:none;}.cd-grid{gap:22px;}}
+
+/* ════════════════════════════════════════
+   EVENTS — wide cards with left accent
+════════════════════════════════════════ */
+#events{background:var(--bg);}
+.event-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:32px;margin-top:52px;
+}
+@media(max-width:640px){.event-row{grid-template-columns:1fr;}}
+.ev-card{
+  display:flex;flex-direction:column;
+  background:var(--surface);border:1px solid var(--border2);
+  position:relative;overflow:hidden;
+  transition:transform .3s,box-shadow .3s;
+}
+.ev-card::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,transparent,var(--gold2),transparent);
+}
+.ev-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(44,34,22,0.1);}
+.ev-photo{
+  height:200px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;font-size:52px;
+}
+.ev-card:nth-child(1) .ev-photo{background:linear-gradient(160deg,#e8ddd0,#c8b89a);}
+.ev-card:nth-child(2) .ev-photo{background:linear-gradient(160deg,#dde8d8,#b8cead);}
+.ev-body{padding:28px 28px 0;}
+.ev-type{font-family:var(--sc);font-size:8px;letter-spacing:.35em;color:var(--gold);margin-bottom:10px;}
+.ev-name{font-family:var(--display);font-size:22px;font-style:italic;color:var(--dark);margin-bottom:10px;line-height:1.3;}
+.ev-detail{font-family:var(--serif);font-size:17px;color:var(--text-dim);line-height:1.75;}
+.ev-footer{
+  margin-top:auto;padding:18px 28px 24px;
+  border-top:1px solid var(--border2);
+  display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+}
+.ev-time{font-family:var(--sc);font-size:9px;letter-spacing:.22em;color:var(--mid);}
+.map-link{
+  font-family:var(--sc);font-size:8px;letter-spacing:.22em;
+  color:var(--accent);text-decoration:none;
+  border-bottom:1px solid rgba(184,112,80,0.3);padding-bottom:2px;
+  transition:opacity .2s;
+}
+.map-link:hover{opacity:.7;}
+
+/* ════════════════════════════════════════
+   TIMELINE — alternating pill layout
+════════════════════════════════════════ */
+.timeline{position:relative;margin-top:56px;}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,var(--gold) 10%,var(--gold) 90%,transparent);
+  transform:translateX(-50%);
+}
+.tl-item{display:flex;align-items:flex-start;margin-bottom:40px;position:relative;}
+.tl-item:nth-child(odd){flex-direction:row-reverse;}
+.tl-dot{
+  position:absolute;left:50%;top:18px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--gold2);border:3px solid var(--bg2);
+  box-shadow:0 0 0 1px var(--gold),0 0 14px rgba(160,120,64,0.3);
+  transform:translateX(-50%);z-index:2;flex-shrink:0;
+}
+.tl-content{
+  width:calc(50% - 32px);padding:18px 22px;
+  background:var(--surface);border:1px solid var(--border2);
+}
+.tl-item:nth-child(odd) .tl-content{margin-right:32px;text-align:right;}
+.tl-item:nth-child(even) .tl-content{margin-left:32px;text-align:left;}
+.tl-time{font-family:var(--sc);font-size:9px;letter-spacing:.22em;color:var(--gold);margin-bottom:6px;}
+.tl-event{font-family:var(--display);font-size:20px;font-style:italic;color:var(--dark);}
+@media(max-width:600px){
+  .timeline::before{left:12px;transform:none;}
+  .tl-item,.tl-item:nth-child(odd){flex-direction:row;padding-left:36px;}
+  .tl-dot{left:12px;}
+  .tl-content{width:100%;margin:0!important;text-align:left!important;padding:14px 16px;}
+}
+
+/* ════════════════════════════════════════
+   PARENTS — elegant framed boxes
+════════════════════════════════════════ */
+#parents{background:var(--bg);}
+.parents-wrap{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  gap:0;margin-top:52px;max-width:760px;margin-left:auto;margin-right:auto;
+  align-items:center;
+}
+.parent-card{
+  padding:44px 36px;text-align:center;
+  border:1px solid var(--border2);background:var(--surface);position:relative;
+}
+.parent-card::before{
+  content:'';position:absolute;top:-1px;left:20%;right:20%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold2),transparent);
+}
+.parents-divider{
+  width:1px;height:100%;
+  background:linear-gradient(180deg,transparent,var(--border),transparent);
+  align-self:stretch;
+}
+.parent-role{
+  font-family:var(--sc);font-size:8.5px;letter-spacing:.32em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:18px;
+}
+.parent-names{
+  font-family:var(--display);font-size:20px;font-style:italic;
+  color:var(--dark);line-height:2;
+}
+@media(max-width:600px){
+  .parents-wrap{grid-template-columns:1fr;gap:20px;}
+  .parents-divider{display:none;}
+}
+
+/* ════════════════════════════════════════
+   ENTOURAGE — clean table aesthetic
+════════════════════════════════════════ */
+#entourage-section{background:var(--bg3);padding:96px 24px;}
+.sp-frame{
+  max-width:760px;margin:32px auto 0;
+  border:1px solid var(--border2);
+}
+.sp-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border2);}
+.sp-row:last-child{border-bottom:none;}
+.sp-col{
+  font-family:var(--display);font-size:20px;font-style:italic;
+  color:var(--dark);text-align:center;padding:15px 22px;line-height:1.4;
+  transition:color .2s,background .2s;background:var(--surface);
+}
+.sp-col:first-child{border-right:1px solid var(--border2);}
+.sp-col:hover{color:var(--gold);background:rgba(160,120,64,0.04);}
+.sp-lone{grid-column:span 2;border-right:none;}
+@media(max-width:600px){
+  .sp-row{grid-template-columns:1fr;}
+  .sp-col:first-child{border-right:none;border-bottom:1px solid var(--border2);}
+  .sp-lone{grid-column:span 1;}
+  .sp-col{font-size:16px;padding:12px 10px;}
+}
+.ent-group h3{
+  font-family:var(--sc);font-size:9.5px;letter-spacing:.3em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:20px;
+  padding-bottom:12px;border-bottom:1px solid var(--border2);text-align:center;
+}
+.ent-group p,.ent-group li{
+  font-family:var(--display);font-size:19px;font-style:italic;
+  color:var(--dark);line-height:2;list-style:none;text-align:center;
+}
+.ent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:44px;margin-top:52px;}
+.ent-grid-2{grid-template-columns:1fr 1fr;}
+@media(max-width:500px){.ent-grid,.ent-grid-2{grid-template-columns:1fr;gap:28px;}}
+.sponsors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:44px;}
+.sponsor-block{
+  background:var(--surface);border:1px solid var(--border2);
+  padding:28px 22px;text-align:center;position:relative;
+  transition:transform .3s,box-shadow .3s;
+}
+.sponsor-block:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(44,34,22,0.08);}
+.sponsor-block::before{
+  content:'';position:absolute;top:0;left:20%;right:20%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold2),transparent);
+}
+.sponsor-role{font-family:var(--sc);font-size:8.5px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.sponsor-names{font-family:var(--display);font-size:17.5px;font-style:italic;color:var(--dark);line-height:1.8;}
+@media(max-width:500px){.sponsors-grid{grid-template-columns:1fr;}}
+
+/* ════════════════════════════════════════
+   DRESS CODE — full-width earthy panel
+════════════════════════════════════════ */
+#dresscode{
+  background:linear-gradient(160deg,#3a4e30 0%,#2e3e24 50%,#252e1c 100%);
+  padding:96px 24px;text-align:center;position:relative;overflow:hidden;
+}
+#dresscode::after{content:'';position:absolute;inset:22px;border:1px solid rgba(200,168,100,0.12);pointer-events:none;}
+#dresscode .s-label{color:rgba(200,168,100,0.6);position:relative;z-index:1;}
+#dresscode .s-title{color:#f5edd8;position:relative;z-index:1;}
+#dresscode .s-body{color:rgba(232,213,168,0.75);position:relative;z-index:1;}
+.swatches{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:48px;position:relative;z-index:1;}
+.swatch{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.sw-color{width:50px;height:50px;border-radius:50%;border:1px solid rgba(200,168,100,0.25);box-shadow:0 4px 14px rgba(0,0,0,0.3);}
+.sw-label{font-family:var(--sc);font-size:7.5px;letter-spacing:.18em;color:rgba(200,168,100,0.6);text-align:center;max-width:70px;}
+.attire-pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px;position:relative;z-index:1;}
+.attire-pill{
+  font-family:var(--sc);font-size:8.5px;letter-spacing:.22em;
+  color:#f5edd8;border:1px solid rgba(200,168,100,0.3);
+  padding:10px 26px;background:rgba(200,168,100,0.06);
+}
+.no-pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px;position:relative;z-index:1;}
+.no-pill{
+  font-family:var(--sc);font-size:8.5px;letter-spacing:.22em;
+  color:rgba(184,112,80,0.7);border:1px solid rgba(184,112,80,0.3);
+  padding:9px 22px;text-decoration:line-through;opacity:.75;
+}
+
+/* ════════════════════════════════════════
+   GIFT — centered ornate card
+════════════════════════════════════════ */
+#gift{background:var(--bg);}
+.gift-card{
+  max-width:640px;margin:48px auto 0;
+  background:var(--surface);border:1px solid var(--border2);
+  padding:56px;position:relative;
+}
+.gift-card::before{content:'';position:absolute;top:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);}
+.gift-card::after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);}
+.gift-icon{font-size:32px;margin-bottom:22px;display:block;}
+.gift-text{font-family:var(--display);font-size:19px;font-style:italic;color:var(--text-dim);line-height:2;text-align:center;}
+@media(max-width:600px){.gift-card{padding:36px 24px;}}
+
+/* ════════════════════════════════════════
+   PHOTOGRAPHY — horizontal band
+════════════════════════════════════════ */
+#photography{
+  background:var(--bg2);padding:80px 24px;
+  display:flex;align-items:center;justify-content:center;
+  border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
+}
+.photo-band{
+  display:grid;grid-template-columns:1fr 2px 1fr;
+  gap:0;max-width:800px;width:100%;
+  align-items:center;
+}
+.pb-left,.pb-right{padding:0 48px;text-align:center;}
+.pb-sep{height:120px;background:linear-gradient(180deg,transparent,var(--border),transparent);}
+.pb-icon{font-size:36px;margin-bottom:18px;display:block;}
+.pb-title{font-family:var(--display);font-size:22px;font-style:italic;color:var(--dark);margin-bottom:12px;}
+.pb-text{font-family:var(--serif);font-size:17.5px;color:var(--text-dim);line-height:1.85;}
+@media(max-width:600px){
+  .photo-band{grid-template-columns:1fr;gap:32px;}
+  .pb-sep{display:none;}
+  .pb-left,.pb-right{padding:0;}
+}
+
+/* ════════════════════════════════════════
+   FAQ — clean accordion
+════════════════════════════════════════ */
+#faq{background:var(--bg);}
+.faq-list{max-width:700px;margin:48px auto 0;text-align:left;}
+.faq-item{border-bottom:1px solid var(--border2);padding:22px 0;}
+.faq-q{
+  font-family:var(--display);font-size:20px;font-style:italic;
+  color:var(--dark);cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.faq-q::after{content:'+';font-family:var(--sans);font-size:20px;color:var(--gold);flex-shrink:0;font-style:normal;transition:transform .3s;}
+.faq-item.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{
+  font-family:var(--serif);font-size:19px;
+  color:var(--text-dim);line-height:1.85;
+  max-height:0;overflow:hidden;transition:max-height .45s ease,padding .3s;
+}
+.faq-item.open .faq-a{max-height:500px;padding-top:14px;}
+
+/* ════════════════════════════════════════
+   HASHTAG
+════════════════════════════════════════ */
+#hashtag{
+  background:var(--dark);padding:96px 24px;text-align:center;
+  position:relative;overflow:hidden;
+}
+#hashtag::after{content:'';position:absolute;inset:22px;border:1px solid rgba(200,168,100,0.1);pointer-events:none;}
+#hashtag .s-label{color:rgba(200,168,100,0.5);position:relative;z-index:1;}
+#hashtag .s-title{color:#f5edd8;position:relative;z-index:1;}
+.ht-display{
+  font-family:var(--display);font-size:clamp(24px,4.5vw,46px);
+  font-style:italic;color:var(--gold-pale);
+  margin:28px 0 10px;cursor:pointer;
+  transition:text-shadow .3s;position:relative;z-index:1;
+}
+.ht-display:hover{text-shadow:0 4px 36px rgba(200,168,100,0.35);}
+.ht-hint{
+  font-family:var(--sc);font-size:8px;letter-spacing:.32em;
+  color:rgba(200,168,100,0.3);margin-bottom:52px;transition:color .3s;
+  position:relative;z-index:1;
+}
+.ht-hint.copied{color:var(--gold-pale);}
+.ht-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:720px;margin:0 auto;position:relative;z-index:1;}
+.ht-card{
+  background:rgba(200,168,100,0.04);border:1px solid rgba(200,168,100,0.1);
+  padding:24px 18px;font-family:var(--serif);font-size:15px;
+  color:rgba(232,213,168,0.65);line-height:1.6;transition:background .2s;
+}
+.ht-card:hover{background:rgba(200,168,100,0.07);}
+.ht-card-icon{font-size:22px;margin-bottom:10px;display:block;}
+.ht-card-title{
+  font-family:var(--sc);font-size:7.5px;letter-spacing:.28em;
+  color:#f5edd8;text-transform:uppercase;margin-bottom:8px;display:block;
+}
+@media(max-width:560px){.ht-grid{grid-template-columns:1fr 1fr;}}
+
+/* ════════════════════════════════════════
+   RSVP
+════════════════════════════════════════ */
+#rsvp{background:var(--bg2);padding:96px 24px;text-align:center;}
+.rsvp-badge{
+  font-family:var(--sc);font-size:10px;letter-spacing:.3em;
+  color:var(--mid);text-transform:uppercase;margin-bottom:40px;
+  display:inline-block;padding:12px 32px;
+  border:1px solid var(--border2);
+}
+.rsvp-wrap{
+  max-width:720px;margin:40px auto 0;
+  background:var(--surface);border:1px solid var(--border2);overflow:hidden;
+}
+.rsvp-wrap iframe{width:100%;border:none;display:block;min-height:680px;}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+footer{
+  background:var(--dark);border-top:1px solid rgba(200,168,100,0.1);
+  color:rgba(200,168,100,0.35);text-align:center;
+  padding:72px 24px;position:relative;overflow:hidden;
+}
+footer::before{content:'';position:absolute;inset:18px;border:1px solid rgba(200,168,100,0.07);pointer-events:none;}
+.f-mono{
+  font-family:var(--display);font-size:58px;font-style:italic;
+  color:rgba(200,168,100,0.18);margin-bottom:18px;display:block;position:relative;z-index:1;
+}
+footer p{
+  font-family:var(--sc);font-size:9px;letter-spacing:.25em;
+  position:relative;z-index:1;margin-top:10px;
+}
+footer .f-crafted{
+  font-family:var(--display);font-size:13px;font-style:italic;
+  color:rgba(200,168,100,0.2);margin-top:24px;
+}
+
+/* canvas overlay */
+#petal-canvas{position:fixed;inset:0;pointer-events:none;z-index:9998;}
+
+/* ════════════════════════════════════════
+   MUSIC PLAYER
+════════════════════════════════════════ */
+#music-player{
+  position:fixed;bottom:24px;right:24px;z-index:990;
+  display:none; /* hidden until intro dismissed */
+}
+.mp-wrap{
+  background:rgba(250,247,242,0.96);backdrop-filter:blur(16px);
+  border:1px solid var(--border2);
+  box-shadow:0 8px 40px rgba(44,34,22,0.12);
+  border-radius:2px;overflow:hidden;
+  width:280px;
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+}
+.mp-wrap.collapsed .mp-body{display:none;}
+.mp-wrap.collapsed{width:56px;}
+
+.mp-header{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 14px;cursor:pointer;
+  border-bottom:1px solid var(--border2);
+  user-select:none;
+}
+.mp-wrap.collapsed .mp-header{border-bottom:none;padding:16px;justify-content:center;}
+.mp-toggle-icon{
+  font-size:16px;line-height:1;
+  transition:transform .3s;flex-shrink:0;
+}
+.mp-wrap.collapsed .mp-toggle-icon{transform:none;}
+.mp-header-text{flex:1;min-width:0;}
+.mp-header-label{
+  font-family:var(--sc);font-size:7.5px;letter-spacing:.3em;
+  color:var(--gold);text-transform:uppercase;display:block;margin-bottom:2px;
+}
+.mp-header-station{
+  font-family:var(--display);font-size:13px;font-style:italic;
+  color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.mp-wrap.collapsed .mp-header-text{display:none;}
+.mp-chevron{
+  font-size:10px;color:var(--text-dim);flex-shrink:0;
+  transition:transform .3s;
+}
+.mp-wrap.collapsed .mp-chevron{display:none;}
+.mp-wrap:not(.collapsed) .mp-chevron{transform:none;}
+
+.mp-body{padding:14px;}
+
+/* Equalizer bars animation */
+.mp-eq{
+  display:flex;align-items:flex-end;gap:3px;height:20px;
+  margin-bottom:14px;
+}
+.mp-eq-bar{
+  width:3px;border-radius:2px;background:var(--gold2);
+  animation:eqDance 0.8s ease-in-out infinite alternate;
+  transition:opacity .3s;
+}
+.mp-eq-bar:nth-child(1){height:8px;animation-delay:0s;animation-duration:.7s;}
+.mp-eq-bar:nth-child(2){height:16px;animation-delay:.1s;animation-duration:.9s;}
+.mp-eq-bar:nth-child(3){height:12px;animation-delay:.05s;animation-duration:.6s;}
+.mp-eq-bar:nth-child(4){height:18px;animation-delay:.15s;animation-duration:.8s;}
+.mp-eq-bar:nth-child(5){height:10px;animation-delay:.2s;animation-duration:1s;}
+.mp-eq-bar:nth-child(6){height:14px;animation-delay:.08s;animation-duration:.75s;}
+.mp-eq-bar:nth-child(7){height:6px;animation-delay:.12s;animation-duration:.65s;}
+@keyframes eqDance{0%{transform:scaleY(0.2)}100%{transform:scaleY(1)}}
+.mp-eq.paused .mp-eq-bar{animation-play-state:paused;opacity:.35;}
+
+.mp-station-name{
+  font-family:var(--display);font-size:17px;font-style:italic;
+  color:var(--dark);margin-bottom:4px;
+}
+.mp-station-tag{
+  font-family:var(--sc);font-size:8px;letter-spacing:.25em;
+  color:var(--text-dim);margin-bottom:14px;display:block;
+}
+.mp-status{
+  font-family:var(--sans);font-size:10px;
+  color:var(--gold);margin-bottom:14px;height:14px;
+  letter-spacing:.02em;
+}
+
+.mp-controls{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+.mp-play-btn{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--dark);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:#faf7f2;font-size:14px;flex-shrink:0;
+  transition:background .2s,transform .15s;
+}
+.mp-play-btn:hover{background:var(--gold);transform:scale(1.05);}
+.mp-vol-wrap{flex:1;display:flex;align-items:center;gap:8px;}
+.mp-vol-icon{font-size:12px;color:var(--text-dim);}
+.mp-vol{
+  flex:1;-webkit-appearance:none;appearance:none;
+  height:3px;background:var(--border2);border-radius:2px;cursor:pointer;outline:none;
+}
+.mp-vol::-webkit-slider-thumb{
+  -webkit-appearance:none;width:12px;height:12px;border-radius:50%;
+  background:var(--gold);cursor:pointer;transition:transform .15s;
+}
+.mp-vol::-webkit-slider-thumb:hover{transform:scale(1.3);}
+
+.mp-stations{display:flex;flex-direction:column;gap:4px;}
+.mp-station-btn{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 10px;cursor:pointer;border:1px solid transparent;
+  background:transparent;transition:all .2s;border-radius:1px;
+  font-family:var(--display);font-size:13px;font-style:italic;
+  color:var(--mid);text-align:left;width:100%;
+}
+.mp-station-btn:hover{border-color:var(--border2);background:var(--bg2);color:var(--dark);}
+.mp-station-btn.active{border-color:var(--border);background:var(--bg3);color:var(--dark);}
+.mp-station-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--border);flex-shrink:0;transition:background .2s;
+}
+.mp-station-btn.active .mp-station-dot{background:var(--gold2);}
+.mp-station-info{flex:1;min-width:0;}
+.mp-station-genre{
+  font-family:var(--sc);font-size:7px;letter-spacing:.2em;
+  color:var(--text-dim);display:block;font-style:normal;margin-top:1px;
+}
+
+</style>
+</head>
+<body>
+
+<canvas id="petal-canvas"></canvas>
+
+<!-- ══════════════════════ INTRO ══════════════════════ -->
+<div id="intro" onclick="openInvitation()">
+  <div class="intro-bar top"></div>
+  <div class="intro-bar bottom"></div>
+  <div class="intro-light"></div>
+
+  <div class="intro-wrap">
+    <p class="intro-line1">You are cordially invited</p>
+
+    <div class="intro-monogram">
+      <svg class="intro-mono-ring" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="72" stroke="rgba(200,168,100,0.5)" stroke-width="0.8" class="ring-circle"/>
+        <circle cx="80" cy="80" r="62" stroke="rgba(200,168,100,0.2)" stroke-width="0.5" class="ring-circle2"/>
+        <line x1="80" y1="8" x2="80" y2="18" stroke="rgba(200,168,100,0.7)" stroke-width="1"/>
+        <line x1="80" y1="142" x2="80" y2="152" stroke="rgba(200,168,100,0.7)" stroke-width="1"/>
+        <line x1="8" y1="80" x2="18" y2="80" stroke="rgba(200,168,100,0.7)" stroke-width="1"/>
+        <line x1="142" y1="80" x2="152" y2="80" stroke="rgba(200,168,100,0.7)" stroke-width="1"/>
+        <circle cx="80" cy="8" r="2" fill="rgba(200,168,100,0.6)"/>
+        <circle cx="80" cy="152" r="2" fill="rgba(200,168,100,0.6)"/>
+        <circle cx="8" cy="80" r="2" fill="rgba(200,168,100,0.6)"/>
+        <circle cx="152" cy="80" r="2" fill="rgba(200,168,100,0.6)"/>
+      </svg>
+      <div class="intro-mono-inner">
+        <span class="intro-mono-text">M&K</span>
+      </div>
+    </div>
+
+    <div class="intro-names">
+      Mark Anthony
+      <span class="intro-amp">&amp;</span>
+      Kimberly
+    </div>
+
+    <div class="intro-rule"></div>
+    <p class="intro-date">November 8, 2026 · Calaruega, Nasugbu, Batangas</p>
+
+    <button class="intro-btn" id="intro-open-btn" onclick="event.stopPropagation();openInvitation();"><span style="font-size:13px;margin-right:6px;">♪</span>Open the Invitation</button>
+    <p class="intro-hint">Music will play · Tap anywhere to enter</p>
+  </div>
+</div>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav>
+  <div class="nav-left">
+    <a href="#story">Our Story</a>
+    <a href="#events">Events</a>
+    <a href="#entourage-section">Entourage</a>
+  </div>
+  <div class="nav-center">M &amp; K</div>
+  <div class="nav-right">
+    <a href="#dresscode">Attire</a>
+    <a href="#gift">Gifts</a>
+    <a href="#rsvp">RSVP</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════ HERO SLIDESHOW ══════════════════════ -->
+<section id="hero">
+
+  <!-- Slide 1 -->
+  <div class="slide active">
+    <div class="slide-bg"></div>
+    <div class="slide-texture"></div>
+    <div class="slide-vignette"></div>
+  </div>
+  <!-- Slide 2 -->
+  <div class="slide">
+    <div class="slide-bg"></div>
+    <div class="slide-texture"></div>
+    <div class="slide-vignette"></div>
+  </div>
+  <!-- Slide 3 -->
+  <div class="slide">
+    <div class="slide-bg"></div>
+    <div class="slide-texture"></div>
+    <div class="slide-vignette"></div>
+  </div>
+  <!-- Slide 4 -->
+  <div class="slide">
+    <div class="slide-bg"></div>
+    <div class="slide-texture"></div>
+    <div class="slide-vignette"></div>
+  </div>
+
+  <!-- Corner frames -->
+  <svg class="hc tl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="8" x2="8" y2="52" stroke="rgba(232,213,168,0.45)" stroke-width="0.8"/>
+    <line x1="8" y1="8" x2="52" y2="8" stroke="rgba(232,213,168,0.45)" stroke-width="0.8"/>
+    <line x1="8" y1="8" x2="28" y2="8" stroke="rgba(232,213,168,0.8)" stroke-width="0.8"/>
+    <line x1="8" y1="8" x2="8" y2="28" stroke="rgba(232,213,168,0.8)" stroke-width="0.8"/>
+    <circle cx="8" cy="8" r="2.5" fill="rgba(232,213,168,0.6)"/>
+  </svg>
+  <svg class="hc tr" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="8" x2="8" y2="52" stroke="rgba(232,213,168,0.45)" stroke-width="0.8"/>
+    <line x1="8" y1="8" x2="52" y2="8" stroke="rgba(232,213,168,0.45)" stroke-width="0.8"/>
+    <circle cx="8" cy="8" r="2.5" fill="rgba(232,213,168,0.6)"/>
+  </svg>
+  <svg class="hc bl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="8" x2="8" y2="52" stroke="rgba(232,213,168,0.45)" stroke-width="0.8"/>
+    <line x1="8" y1="8" x2="52" y2="8" stroke="rgba(232,213,168,0.45)" stroke-width="0.8"/>
+    <circle cx="8" cy="8" r="2.5" fill="rgba(232,213,168,0.6)"/>
+  </svg>
+  <svg class="hc br" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="8" x2="8" y2="52" stroke="rgba(232,213,168,0.45)" stroke-width="0.8"/>
+    <line x1="8" y1="8" x2="52" y2="8" stroke="rgba(232,213,168,0.45)" stroke-width="0.8"/>
+    <circle cx="8" cy="8" r="2.5" fill="rgba(232,213,168,0.6)"/>
+  </svg>
+
+  <!-- Hero text — above all slides -->
+  <div class="hero-content">
+    <p class="hero-eyebrow">Together with their families</p>
+    <h1 class="hero-names">
+      Mark Anthony
+      <span class="hero-amp">&amp;</span>
+      Kimberly
+    </h1>
+    <div class="hero-rule"><span>✦</span></div>
+    <p class="hero-hashtag">#MarkAtKimHanggangGubat</p>
+    <p class="hero-date">November 8, 2026 · Calaruega, Nasugbu, Batangas</p>
+  </div>
+
+  <!-- Controls -->
+  <button class="s-prev" onclick="changeSlide(-1)"><span>‹</span></button>
+  <button class="s-next" onclick="changeSlide(1)"><span>›</span></button>
+  <div class="s-dots" id="sdots">
+    <div class="s-dot active" onclick="goSlide(0)"></div>
+    <div class="s-dot" onclick="goSlide(1)"></div>
+    <div class="s-dot" onclick="goSlide(2)"></div>
+    <div class="s-dot" onclick="goSlide(3)"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════ PHOTO STRIP ══════════════════════ -->
+<div class="strip-wrap">
+  <div class="strip" id="strip">
+    <div class="strip-item" data-label="Mark & Kimberly"><div class="strip-ph" style="background:linear-gradient(135deg,#e8ddd0,#c8b89a)"><span>M</span></div></div>
+    <div class="strip-item" data-label="Together"><div class="strip-ph" style="background:linear-gradient(135deg,#dde8d8,#b8cead)"><span>K</span></div></div>
+    <div class="strip-item" data-label="#MarkAtKimHanggangGubat"><div class="strip-ph" style="background:linear-gradient(135deg,#e0d8e8,#c0b0d0)"><span>♡</span></div></div>
+    <div class="strip-item" data-label="Calaruega"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d8c0,#c8b890)"><span>✦</span></div></div>
+    <div class="strip-item" data-label="Save the Date"><div class="strip-ph" style="background:linear-gradient(135deg,#d8e8d0,#b0c8a8)"><span>M</span></div></div>
+    <div class="strip-item" data-label="November 8"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d0c0,#c8a890)"><span>K</span></div></div>
+    <div class="strip-item" data-label="Forever"><div class="strip-ph" style="background:linear-gradient(135deg,#d0d8e8,#a8b8d0)"><span>♡</span></div></div>
+    <div class="strip-item" data-label="Love Story"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d8c8,#c8b8a0)"><span>✦</span></div></div>
+    <!-- duplicates -->
+    <div class="strip-item" data-label="Mark & Kimberly"><div class="strip-ph" style="background:linear-gradient(135deg,#e8ddd0,#c8b89a)"><span>M</span></div></div>
+    <div class="strip-item" data-label="Together"><div class="strip-ph" style="background:linear-gradient(135deg,#dde8d8,#b8cead)"><span>K</span></div></div>
+    <div class="strip-item" data-label="#MarkAtKimHanggangGubat"><div class="strip-ph" style="background:linear-gradient(135deg,#e0d8e8,#c0b0d0)"><span>♡</span></div></div>
+    <div class="strip-item" data-label="Calaruega"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d8c0,#c8b890)"><span>✦</span></div></div>
+    <div class="strip-item" data-label="Save the Date"><div class="strip-ph" style="background:linear-gradient(135deg,#d8e8d0,#b0c8a8)"><span>M</span></div></div>
+    <div class="strip-item" data-label="November 8"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d0c0,#c8a890)"><span>K</span></div></div>
+    <div class="strip-item" data-label="Forever"><div class="strip-ph" style="background:linear-gradient(135deg,#d0d8e8,#a8b8d0)"><span>♡</span></div></div>
+    <div class="strip-item" data-label="Love Story"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d8c8,#c8b8a0)"><span>✦</span></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ OUR STORY ══════════════════════ -->
+<!-- Story: full intro split -->
+<div id="story" class="reveal">
+  <div class="story-split">
+    <div class="story-img-col">
+      <div class="story-ph"><span>M &amp; K</span></div>
+    </div>
+    <div class="story-text-col">
+      <span class="s-label">How It All Began</span>
+      <h2 class="s-title">Our Story</h2>
+      <div class="divider"><span>✦</span></div>
+      <div class="story-body">
+        <p>We are Mark and Kimberly, and our story first began in November 2006 through a mutual friend at a coffee shop in Timog, QC. Mark admittedly thought Kim was cute — especially her beautiful hair. What started as a simple friendship quickly turned into hours of phone calls, endless conversations, and a connection neither of us expected.</p>
+        <p>What began as a simple <em>"Okay, let's try being together"</em> slowly became a lifetime promise of love, partnership, and forever.</p>
+      </div>
+      <div class="story-sig">Mark Anthony &amp; Kimberly</div>
+    </div>
+  </div>
+</div>
+
+<!-- Story: milestone chapters -->
+<div class="story-chapters reveal">
+  <div class="story-chapters-inner">
+
+    <div class="chapter-header">
+      <span class="s-label">Twenty Years of Choosing Each Other</span>
+      <h2 class="s-title" style="color:var(--dark);">Our Journey</h2>
+      <div class="divider"><span>✦</span></div>
+    </div>
+
+    <!-- Chapter 1 -->
+    <div class="chapter-row">
+      <div class="chapter-year-col">
+        <div class="chapter-year">2006</div>
+        <div class="chapter-year-line"></div>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-icon">☕</div>
+        <h3 class="chapter-title">Where It All Started</h3>
+        <p class="chapter-text">From that moment on, our lives became filled with shared adventures — long drives with no particular destination, spontaneous out-of-town trips, food trips, movie dates, massage dates, matching outfits, doing laundry together, cooking experiments, and quiet evenings filled with laughter and comfort in each other's company.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div class="chapter-row chapter-row-alt">
+      <div class="chapter-card">
+        <div class="chapter-icon">💍</div>
+        <h3 class="chapter-title">The Proposal</h3>
+        <p class="chapter-text">Nine years later, on a cold and drizzly afternoon at Victoria Peak in Hong Kong, Mark got down on one knee and asked Kim to marry him. Of course, Kim said yes. Soon after, we were married in a civil ceremony, beginning another beautiful chapter of our lives together.</p>
+      </div>
+      <div class="chapter-year-col chapter-year-col-right">
+        <div class="chapter-year">2015</div>
+        <div class="chapter-year-line"></div>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter-row">
+      <div class="chapter-year-col">
+        <div class="chapter-year">The Distance</div>
+        <div class="chapter-year-line"></div>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-icon">✈️</div>
+        <h3 class="chapter-title">Through Every Season</h3>
+        <p class="chapter-text">Like any relationship, our journey was not always easy. We spent years navigating a long-distance relationship before finally being reunited and building our life together as husband and wife. Through every season — both joyful and difficult — we continued choosing one another, again and again.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter-row chapter-row-alt">
+      <div class="chapter-card">
+        <div class="chapter-icon">🌿</div>
+        <h3 class="chapter-title">Faith, Love &amp; Marquin</h3>
+        <p class="chapter-text">One of the happiest moments of our lives was finding out we were expecting our first baby. Though we later experienced the heartbreak of miscarriage, our faith, love, and unwavering support for one another carried us through. Together, we continued to grow, pursue our dreams and careers, and stand side by side through every challenge life placed before us.</p>
+        <p class="chapter-text" style="margin-top:14px;">Holding tightly to Isaiah 60:22 — <em>"When the time is right, I, the Lord, will make it happen"</em> — in God's perfect timing, we were blessed with our son, <strong>Marquin</strong>, now two years old and one of our greatest blessings.</p>
+      </div>
+      <div class="chapter-year-col chapter-year-col-right">
+        <div class="chapter-year">Marquin</div>
+        <div class="chapter-year-line"></div>
+      </div>
+    </div>
+
+    <!-- Chapter 5 — closing -->
+    <div class="chapter-closing">
+      <div class="chapter-closing-rule"></div>
+      <div class="chapter-icon" style="font-size:32px;margin-bottom:20px;">⛪</div>
+      <h3 class="chapter-title" style="font-size:clamp(22px,3.5vw,34px);margin-bottom:18px;">November 8, 2026</h3>
+      <p class="chapter-text" style="max-width:680px;margin:0 auto 18px;">Today, as we prepare to be married in church surrounded by the people we love most, we also celebrate another beautiful milestone — <strong>20 years</strong> of partnership, growing together, and finding home in one another through every chapter of life.</p>
+      <p class="chapter-text" style="max-width:680px;margin:0 auto 28px;">As we stand on the edge of our greatest adventure yet, we look forward to continuing to write the rest of our story — hand in hand, side by side, and together forever.</p>
+      <p class="chapter-closing-tagalog">Habambuhay, ikaw at ako — sa hirap at ginhawa,<br/>kasama ang Diyos sa gitna ng ating pagmamahalan<br/>at sa ating munting tahanan.</p>
+      <div class="story-sig" style="margin-top:32px;text-align:center;">Mark Anthony &amp; Kimberly</div>
+      <div class="chapter-closing-rule" style="margin-top:32px;"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════ COUNTDOWN ══════════════════════ -->
+<section id="countdown">
+  <span class="s-label">Counting Down To</span>
+  <h2 class="s-title">The Big Day</h2>
+  <div class="cd-grid">
+    <div class="cd-block"><span class="cd-num" id="cd-days">---</span><span class="cd-unit">Days</span></div>
+    <span class="cd-sep">·</span>
+    <div class="cd-block"><span class="cd-num" id="cd-hours">--</span><span class="cd-unit">Hours</span></div>
+    <span class="cd-sep">·</span>
+    <div class="cd-block"><span class="cd-num" id="cd-mins">--</span><span class="cd-unit">Minutes</span></div>
+    <span class="cd-sep">·</span>
+    <div class="cd-block"><span class="cd-num" id="cd-secs">--</span><span class="cd-unit">Seconds</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════ EVENTS ══════════════════════ -->
+<section id="events" class="reveal">
+  <span class="s-label">Mark Your Calendar</span>
+  <h2 class="s-title">The Celebration</h2>
+  <div class="divider"><span>✦</span></div>
+  <div class="event-row inner">
+    <div class="ev-card">
+      <div class="ev-photo">⛪</div>
+      <div class="ev-body">
+        <p class="ev-type">Holy Matrimony</p>
+        <h3 class="ev-name">Chapel of the Transfiguration</h3>
+        <p class="ev-detail">Calaruega<br/>4231 Caleruega Road<br/>Nasugbu, Batangas, Philippines</p>
+      </div>
+      <div class="ev-footer">
+        <span class="ev-time">6:00 PM · November 8, 2026</span>
+        <a class="map-link" href="https://maps.google.com/?q=Caleruega+Chapel+of+Transfiguration+Nasugbu+Batangas" target="_blank">↗ Get Directions</a>
+      </div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-photo">🕊</div>
+      <div class="ev-body">
+        <p class="ev-type">Wedding Reception</p>
+        <h3 class="ev-name">Palacio Crystal Del Aquila</h3>
+        <p class="ev-detail">Happy Rd, Kaybagal South<br/>Tagaytay City, 4120 Cavite<br/>Philippines</p>
+      </div>
+      <div class="ev-footer">
+        <span class="ev-time">From 5:00 PM onwards</span>
+        <a class="map-link" href="https://maps.google.com/?q=Palacio+Crystal+Del+Aquila+Tagaytay" target="_blank">↗ Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ TIMELINE ══════════════════════ -->
+<div class="alt-bg reveal">
+  <div class="inner" style="padding:80px 0;text-align:center;">
+    <span class="s-label">Program Flow</span>
+    <h2 class="s-title">An Evening to Remember</h2>
+    <div class="divider"><span>✦</span></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><p class="tl-time">5:00 PM</p><p class="tl-event">Guest Arrival</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><p class="tl-time">6:00 PM</p><p class="tl-event">Wedding Ceremony</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><p class="tl-time">7:30 PM</p><p class="tl-event">Cocktail Hour</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><p class="tl-time">8:30 PM</p><p class="tl-event">Reception Dinner</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><p class="tl-time">10:30 PM</p><p class="tl-event">After Party</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PARENTS ══════════════════════ -->
+<section id="parents" class="reveal">
+  <span class="s-label">Blessed By</span>
+  <h2 class="s-title">Our Beloved Parents</h2>
+  <div class="divider"><span>✦</span></div>
+  <div class="parents-wrap">
+    <div class="parent-card">
+      <p class="parent-role">Parents of the Bride</p>
+      <p class="parent-names">Guillermo Tagayuna<br/>and<br/>Eloisa Tagayuna</p>
+    </div>
+    <div class="parents-divider"></div>
+    <div class="parent-card">
+      <p class="parent-role">Parents of the Groom</p>
+      <p class="parent-names">Reynaldo Gubat<br/>and<br/>Delia Gubat</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ ENTOURAGE ══════════════════════ -->
+<section id="entourage-section" class="alt-bg3 reveal" style="padding:96px 24px;">
+  <div class="inner" style="text-align:center;">
+    <span class="s-label">Our Beloved</span>
+    <h2 class="s-title">Wedding Entourage</h2>
+    <div class="divider"><span>✦</span></div>
+
+    <div class="ent-group" style="margin-bottom:52px;">
+      <h3>Principal Sponsors</h3>
+      <div class="sp-frame">
+        <div class="sp-row"><div class="sp-col">Mr. Jerome Espiritu</div><div class="sp-col">Ms. Macydane Callao</div></div>
+        <div class="sp-row"><div class="sp-col">Mr. Oswaldo Fernandez</div><div class="sp-col">Mrs. Fe Fernandez</div></div>
+        <div class="sp-row"><div class="sp-col">Dr. Wills Nkwain Ngamfon</div><div class="sp-col">Ms. Ma. Lourdes Viterbo</div></div>
+      </div>
+    </div>
+
+    <div class="divider"><span>✦</span></div>
+    <div class="ent-grid ent-grid-2" style="max-width:640px;margin:0 auto;">
+      <div class="ent-group"><h3>Matron of Honor</h3><ul><li>Abigail Gabriel</li></ul></div>
+      <div class="ent-group"><h3>Best Man</h3><ul><li>Rey Mark Gubat</li></ul></div>
+    </div>
+
+    <div class="divider" style="margin-top:44px;"><span>✦</span></div>
+    <div class="ent-grid ent-grid-2">
+      <div class="ent-group">
+        <h3>Bridesmaids</h3>
+        <ul>
+          <li>Aika Jeane Mamuad</li><li>Myka Alexandra Mamuad</li>
+          <li>Danielle Louise Lozada</li><li>Mareffie Jeyn Mamuad</li>
+        </ul>
+      </div>
+      <div class="ent-group">
+        <h3>Groomsmen</h3>
+        <ul>
+          <li>John Idds Bellido</li><li>Ian Rey Gubat</li>
+          <li>Mike Francis Gubat</li><li>Louie Angelo Alindogan</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"><span>✦</span></div>
+    <span class="s-label" style="display:block;margin-bottom:28px;">Secondary Sponsors</span>
+    <div class="sponsors-grid">
+      <div class="sponsor-block"><p class="sponsor-role">Candle</p><p class="sponsor-names">Lowie De Guzman<br/>&amp; Imelda De Guzman</p></div>
+      <div class="sponsor-block"><p class="sponsor-role">Veil</p><p class="sponsor-names">Jonathan Morales<br/>&amp; Ailene Morales</p></div>
+      <div class="sponsor-block"><p class="sponsor-role">Cord</p><p class="sponsor-names">Athenis Rint<br/>&amp; Juliet Rint</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ DRESS CODE ══════════════════════ -->
+<section id="dresscode" class="reveal">
+  <div class="inner" style="position:relative;z-index:1;text-align:center;">
+    <span class="s-label">Attire Guide</span>
+    <h2 class="s-title">Dress Code</h2>
+    <div style="display:flex;align-items:center;gap:14px;margin:28px auto;max-width:480px;">
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,100,0.3),transparent);"></div>
+      <span style="color:rgba(200,168,100,0.5);font-size:10px;letter-spacing:3px;">✦</span>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,100,0.3),transparent);"></div>
+    </div>
+    <p class="s-body" style="margin-bottom:32px;">We lovingly invite you to dress in the spirit of our wedding — Modern Filipiniana, elegant, and earthen-toned.</p>
+    <div class="swatches">
+      <div class="swatch"><div class="sw-color" style="background:#F5ECD7;"></div><span class="sw-label">Champagne</span></div>
+      <div class="swatch"><div class="sw-color" style="background:#E8D5B0;"></div><span class="sw-label">Sand</span></div>
+      <div class="swatch"><div class="sw-color" style="background:#B8A89A;"></div><span class="sw-label">Taupe</span></div>
+      <div class="swatch"><div class="sw-color" style="background:#8B9E7A;"></div><span class="sw-label">Sage Green</span></div>
+      <div class="swatch"><div class="sw-color" style="background:#6B7A5E;"></div><span class="sw-label">Olive</span></div>
+      <div class="swatch"><div class="sw-color" style="background:#C17B5A;"></div><span class="sw-label">Terracotta</span></div>
+      <div class="swatch"><div class="sw-color" style="background:#5C3D2E;"></div><span class="sw-label">Walnut</span></div>
+      <div class="swatch"><div class="sw-color" style="background:#B8963E;"></div><span class="sw-label">Brass</span></div>
+    </div>
+    <div style="margin-top:40px;"><p style="font-family:'Playfair Display SC',serif;font-size:8.5px;letter-spacing:.35em;color:rgba(200,168,100,0.55);text-transform:uppercase;margin-bottom:18px;">Suggested Attire</p></div>
+    <div class="attire-pills">
+      <span class="attire-pill">Barong Tagalog</span>
+      <span class="attire-pill">Polo / Long Sleeves &amp; Slacks</span>
+      <span class="attire-pill">Filipiniana</span>
+      <span class="attire-pill">Puff-Sleeved Gown or Dress</span>
+      <span class="attire-pill">Filipiniana Blouse</span>
+    </div>
+    <div style="margin-top:28px;"><p style="font-family:'Playfair Display SC',serif;font-size:8.5px;letter-spacing:.35em;color:rgba(184,112,80,0.55);text-transform:uppercase;margin-bottom:18px;">Please Avoid</p></div>
+    <div class="no-pills">
+      <span class="no-pill">White</span>
+      <span class="no-pill">Ivory</span>
+      <span class="no-pill">Dark Colors</span>
+      <span class="no-pill">Denim</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ GIFT ══════════════════════ -->
+<section id="gift" class="reveal">
+  <span class="s-label">With Gratitude</span>
+  <h2 class="s-title">Gift Guide</h2>
+  <div class="divider"><span>✦</span></div>
+  <div class="gift-card">
+    <span class="gift-icon">🌿</span>
+    <p class="gift-text">With hearts full of gratitude, we are truly honored to celebrate this joyful occasion with the people we love most. Your presence, prayers, and blessings are the greatest gifts we could ever receive. Should you wish to extend your generosity further, a monetary gift would be sincerely appreciated and warmly treasured.</p>
+    <div style="margin-top:32px;font-family:'Playfair Display',serif;font-size:26px;font-style:italic;color:var(--accent);">Maraming salamat.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════ PHOTOGRAPHY ══════════════════════ -->
+<section id="photography" class="reveal">
+  <div class="photo-band">
+    <div class="pb-left">
+      <span class="pb-icon">📸</span>
+      <p class="pb-title">Capturing the Moment</p>
+      <p class="pb-text">Guests are welcome to take photos anytime! We only ask that you be respectful and present during the ceremony.</p>
+    </div>
+    <div class="pb-sep"></div>
+    <div class="pb-right">
+      <span class="pb-icon">🎞</span>
+      <p class="pb-title">Our Photographer</p>
+      <p class="pb-text">Our photographer will capture all the beautiful moments throughout the day so you can be fully present.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FAQ ══════════════════════ -->
+<section id="faq" class="reveal">
+  <span class="s-label">Questions &amp; Answers</span>
+  <h2 class="s-title">Things to Know</h2>
+  <div class="divider"><span>✦</span></div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Where is the ceremony held?</div>
+      <div class="faq-a">The ceremony will be held at the Chapel of the Transfiguration, Calaruega, 4231 Caleruega Road, Nasugbu, Batangas, Philippines — beginning at 6:00 PM.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Where is the reception?</div>
+      <div class="faq-a">The reception will be at Palacio Crystal Del Aquila, Happy Rd, Kaybagal South, Tagaytay City, 4120 Cavite. Guest arrival begins at 5:00 PM, ceremony at 6:00 PM, cocktail hour at 7:30 PM, dinner at 8:30 PM, and after party at 10:30 PM.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the dress code?</div>
+      <div class="faq-a">We invite you to dress in Modern Filipiniana style — Barong Tagalog, Polo or Long Sleeves with Slacks, Filipiniana, or a Puff-Sleeved Gown or Dress in our palette: Champagne, Sand, Taupe, Sage Green, Olive, Terracotta, Walnut, or Brass. Please avoid White, Ivory, Dark Colors, and Denim.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">When is the RSVP deadline?</div>
+      <div class="faq-a">Please kindly RSVP by October 8, 2026, so we can prepare every detail of our celebration for all our beloved guests.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can guests take photos?</div>
+      <div class="faq-a">Yes! Guests are welcome to take photos anytime throughout the celebration. We only ask for mindful and respectful presence during the ceremony.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I bring a plus-one?</div>
+      <div class="faq-a">If your invitation includes a plus-one, it will be reflected on your RSVP. Thank you for understanding our limited seating.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should I fill out the RSVP if I can't attend?</div>
+      <div class="faq-a">We'll truly miss celebrating with you! If you can't make it, you may simply let us know directly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ HASHTAG ══════════════════════ -->
+<section id="hashtag" class="reveal">
+  <div class="inner" style="position:relative;z-index:1;text-align:center;">
+    <span class="s-label">Share the Love</span>
+    <h2 class="s-title">Our Wedding Hashtag</h2>
+    <p class="ht-display" id="hashtag-text" onclick="copyHashtag()">#MarkAtKimHanggangGubat</p>
+    <p class="ht-hint" id="hashtag-hint">Tap to copy · Share on your photos</p>
+    <div class="ht-grid">
+      <div class="ht-card"><span class="ht-card-icon">📸</span><span class="ht-card-title">Tag Your Photos</span>Use our hashtag on every photo you share from the celebration</div>
+      <div class="ht-card"><span class="ht-card-icon">💌</span><span class="ht-card-title">Instagram &amp; Facebook</span>Help us collect every beautiful memory captured by our guests</div>
+      <div class="ht-card"><span class="ht-card-icon">✨</span><span class="ht-card-title">Be Part of Our Story</span>Your photos become a treasured part of our wedding album</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ RSVP ══════════════════════ -->
+<section id="rsvp" class="reveal">
+  <div class="inner" style="text-align:center;">
+    <span class="s-label">You Are Invited</span>
+    <h2 class="s-title">Kindly Reply</h2>
+    <div class="divider"><span>✦</span></div>
+    <span class="rsvp-badge">RSVP Deadline · October 8, 2026</span>
+    <p class="s-body" style="margin-top:0;margin-bottom:36px;">We would be overjoyed to have you celebrate this special day with us.<br/>Please let us know if you'll be attending so we can prepare accordingly.</p>
+    <div class="rsvp-wrap">
+      <iframe src="https://docs.google.com/forms/d/e/PASTE_YOUR_FORM_ID_HERE/viewform?embedded=true" width="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <span class="f-mono">M &amp; K</span>
+  <p>Mark Anthony &amp; Kimberly</p>
+  <p>November 8, 2026 · Calaruega, Nasugbu, Batangas</p>
+  <p style="margin-top:8px;color:rgba(200,168,100,0.2);">#MarkAtKimHanggangGubat</p>
+  <p class="f-crafted">Made with love by Love &amp; Crafts</p>
+</footer>
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<script>
+/* ── INTRO ── */
+function dismissIntro(){
+  const el=document.getElementById('intro');
+  el.classList.add('hiding');
+  setTimeout(()=>{el.style.display='none';},900);
+}
+
+/* ── SLIDESHOW ── */
+let cur=0;
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.s-dot');
+let timer=null;
+function goSlide(n){
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur=(n+slides.length)%slides.length;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+}
+function changeSlide(d){goSlide(cur+d);resetTimer();}
+function resetTimer(){clearInterval(timer);timer=setInterval(()=>goSlide(cur+1),5500);}
+resetTimer();
+
+/* ── COUNTDOWN ── */
+(function(){
+  const target=new Date('2026-11-08T18:00:00+08:00').getTime();
+  function tick(){
+    let diff=target-Date.now();
+    if(diff<0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='0');return;}
+    const d=Math.floor(diff/86400000);diff%=86400000;
+    const h=Math.floor(diff/3600000);diff%=3600000;
+    const m=Math.floor(diff/60000);diff%=60000;
+    const s=Math.floor(diff/1000);
+    document.getElementById('cd-days').textContent=d;
+    document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+  }
+  tick();setInterval(tick,1000);
+})();
+
+/* ── SCROLL REVEAL ── */
+(function(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+})();
+
+/* ── FAQ ── */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const was=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
+  });
+});
+
+/* ── HASHTAG COPY ── */
+function copyHashtag(){
+  const tag='#MarkAtKimHanggangGubat';
+  const hint=document.getElementById('hashtag-hint');
+  navigator.clipboard.writeText(tag).then(()=>{
+    hint.textContent='✓ Copied to clipboard!';hint.classList.add('copied');
+    setTimeout(()=>{hint.textContent='Tap to copy · Share on your photos';hint.classList.remove('copied');},2500);
+  }).catch(()=>{hint.textContent=tag;});
+}
+
+/* ── FLOATING PETALS ── */
+(function(){
+  const canvas=document.getElementById('petal-canvas');
+  const ctx=canvas.getContext('2d');
+  let petals=[];
+  const COLORS=['rgba(160,120,64,0.25)','rgba(200,168,100,0.2)','rgba(184,112,80,0.2)','rgba(122,142,108,0.2)','rgba(160,120,64,0.15)'];
+  function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  function make(){return{x:Math.random()*canvas.width,y:-12,size:3+Math.random()*6,speed:0.4+Math.random()*0.9,drift:(Math.random()-.5)*.5,rot:Math.random()*Math.PI*2,rotSpeed:(Math.random()-.5)*.03,color:COLORS[Math.floor(Math.random()*COLORS.length)],opacity:.2+Math.random()*.4};}
+  function draw(p){ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.globalAlpha=p.opacity;ctx.fillStyle=p.color;ctx.beginPath();ctx.ellipse(0,0,p.size,p.size*.5,0,0,Math.PI*2);ctx.fill();ctx.restore();}
+  let frame=0;
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    frame++;
+    if(frame%100===0&&petals.length<16)petals.push(make());
+    petals=petals.filter(p=>p.y<canvas.height+20);
+    petals.forEach(p=>{p.y+=p.speed;p.x+=p.drift+Math.sin(p.y*.012)*.35;p.rot+=p.rotSpeed;draw(p);});
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+/* ── OPEN INVITATION (intro dismiss + music autoplay) ── */
+function openInvitation(){
+  dismissIntro();
+  document.getElementById('music-player').style.display='block';
+  // Auto-start music after a short delay
+  setTimeout(()=>{
+    if(!isPlaying) togglePlay();
+  }, 1000);
+}
+</script>
+
+<!-- ══════════════════════ MUSIC PLAYER SCRIPT ══════════════════════ -->
+<script>
+/* ── MUSIC PLAYER ── */
+const SONG_URL = 'https://github.com/user-attachments/files/28124938/Tahanan.-.Wedding.Version.c.El.Manu.Jessy.Kang.Official.Audio.mp3'; // ← paste Cloudinary URL here
+const SONG_NAME = 'Our Song';
+const SONG_TAG  = 'Mark Anthony & Kimberly';
+
+let isPlaying = false;
+const audio = document.getElementById('radio-audio');
+audio.src = SONG_URL;
+audio.volume = 0.7;
+
+document.getElementById('mp-cur-name').textContent = SONG_NAME;
+document.getElementById('mp-cur-tag').textContent  = SONG_TAG;
+document.getElementById('mp-header-station').textContent = SONG_NAME;
+
+function togglePlay(){
+  if(!isPlaying){
+    audio.play().then(()=>{
+      isPlaying = true;
+      document.getElementById('mp-play-btn').textContent = '⏸';
+      document.getElementById('mp-icon').textContent = '♫';
+      document.getElementById('mp-eq').classList.remove('paused');
+      document.getElementById('mp-status').textContent = 'Now Playing';
+    }).catch(()=>{
+      document.getElementById('mp-status').textContent = 'Tap play to start';
+    });
+  } else {
+    audio.pause();
+    isPlaying = false;
+    document.getElementById('mp-play-btn').textContent = '▶';
+    document.getElementById('mp-icon').textContent = '♪';
+    document.getElementById('mp-eq').classList.add('paused');
+    document.getElementById('mp-status').textContent = 'Paused';
+  }
+}
+
+function setVol(v){ audio.volume = v; }
+
+function togglePlayer(){
+  document.getElementById('mp-wrap').classList.toggle('collapsed');
+}
+
+audio.addEventListener('error',   ()=>{ document.getElementById('mp-status').textContent = 'Unable to load audio'; });
+audio.addEventListener('waiting',  ()=>{ document.getElementById('mp-status').textContent = 'Loading…'; });
+audio.addEventListener('playing',  ()=>{ document.getElementById('mp-status').textContent = 'Now Playing'; });
+audio.addEventListener('ended',    ()=>{
+  isPlaying = false;
+  document.getElementById('mp-play-btn').textContent = '▶';
+  document.getElementById('mp-icon').textContent = '♪';
+  document.getElementById('mp-eq').classList.add('paused');
+  document.getElementById('mp-status').textContent = 'Ended';
+});
+</script>
+
+<!-- ══════════════════════ MUSIC PLAYER ══════════════════════ -->
+<div id="music-player">
+  <audio id="radio-audio" preload="none"></audio>
+  <div class="mp-wrap collapsed" id="mp-wrap">
+
+    <!-- Header / collapse toggle -->
+    <div class="mp-header" onclick="togglePlayer()">
+      <span class="mp-toggle-icon" id="mp-icon">♪</span>
+      <div class="mp-header-text">
+        <span class="mp-header-label">Now Playing</span>
+        <span class="mp-header-station" id="mp-header-station">Filipino Radio</span>
+      </div>
+      <span class="mp-chevron" id="mp-chevron">▾</span>
+    </div>
+
+    <!-- Expanded body -->
+    <div class="mp-body">
+      <!-- EQ visualizer -->
+      <div class="mp-eq paused" id="mp-eq">
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+      </div>
+
+      <p class="mp-station-name" id="mp-cur-name">DWRR 101.9 OPM Gold</p>
+      <span class="mp-station-tag" id="mp-cur-tag">OPM · Love Songs · Filipino</span>
+      <p class="mp-status" id="mp-status">Connecting…</p>
+
+      <div class="mp-controls">
+        <button class="mp-play-btn" id="mp-play-btn" onclick="togglePlay()">▶</button>
+        <div class="mp-vol-wrap">
+          <span class="mp-vol-icon">🔈</span>
+          <input type="range" class="mp-vol" id="mp-vol" min="0" max="1" step="0.01" value="0.7" oninput="setVol(this.value)"/>
+          <span class="mp-vol-icon">🔊</span>
+        </div>
+      </div>
+
+      <!-- Station list -->
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
