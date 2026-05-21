@@ -1475,14 +1475,56 @@ footer .f-crafted{
 </footer>
 
 <!-- ══════════════════════ SCRIPTS ══════════════════════ -->
-<script>
-/* ── INTRO ── */
-function dismissIntro(){
-  const el=document.getElementById('intro');
-  el.classList.add('hiding');
-  setTimeout(()=>{el.style.display='none';},900);
-}
 
+
+<!-- ══════════════════════ MUSIC PLAYER ══════════════════════ -->
+<div id="music-player">
+  <audio id="radio-audio" preload="none"></audio>
+  <div class="mp-wrap" id="mp-wrap">
+
+    <!-- Header / collapse toggle -->
+    <div class="mp-header" onclick="togglePlayer()">
+      <span class="mp-toggle-icon" id="mp-icon">♪</span>
+      <div class="mp-header-text">
+        <span class="mp-header-label">Now Playing</span>
+        <span class="mp-header-station" id="mp-header-station">Filipino Radio</span>
+      </div>
+      <span class="mp-chevron" id="mp-chevron">▾</span>
+    </div>
+
+    <!-- Expanded body -->
+    <div class="mp-body">
+      <!-- EQ visualizer -->
+      <div class="mp-eq paused" id="mp-eq">
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+      </div>
+
+      <p class="mp-station-name" id="mp-cur-name">DWRR 101.9 OPM Gold</p>
+      <span class="mp-station-tag" id="mp-cur-tag">OPM · Love Songs · Filipino</span>
+      <p class="mp-status" id="mp-status">Connecting…</p>
+
+      <div class="mp-controls">
+        <button class="mp-play-btn" id="mp-play-btn" onclick="togglePlay()">▶</button>
+        <div class="mp-vol-wrap">
+          <span class="mp-vol-icon">🔈</span>
+          <input type="range" class="mp-vol" id="mp-vol" min="0" max="1" step="0.01" value="0.7" oninput="setVol(this.value)"/>
+          <span class="mp-vol-icon">🔊</span>
+        </div>
+      </div>
+
+      <!-- Station list -->
+
+    </div>
+  </div>
+</div>
+
+<script>
 /* ── SLIDESHOW ── */
 let cur=0;
 const slides=document.querySelectorAll('.slide');
@@ -1566,64 +1608,7 @@ function copyHashtag(){
   }
   animate();
 })();
-
-/* ── OPEN INVITATION (intro dismiss + music autoplay) ── */
-function openInvitation(){
-  dismissIntro();
-  document.getElementById('music-player').style.display='block';
-  // Auto-start music after a short delay
-  setTimeout(()=>{
-    if(!isPlaying) togglePlay();
-  }, 1000);
-}
 </script>
-
-<!-- ══════════════════════ MUSIC PLAYER ══════════════════════ -->
-<div id="music-player">
-  <audio id="radio-audio" preload="none"></audio>
-  <div class="mp-wrap collapsed" id="mp-wrap">
-
-    <!-- Header / collapse toggle -->
-    <div class="mp-header" onclick="togglePlayer()">
-      <span class="mp-toggle-icon" id="mp-icon">♪</span>
-      <div class="mp-header-text">
-        <span class="mp-header-label">Now Playing</span>
-        <span class="mp-header-station" id="mp-header-station">Filipino Radio</span>
-      </div>
-      <span class="mp-chevron" id="mp-chevron">▾</span>
-    </div>
-
-    <!-- Expanded body -->
-    <div class="mp-body">
-      <!-- EQ visualizer -->
-      <div class="mp-eq paused" id="mp-eq">
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-      </div>
-
-      <p class="mp-station-name" id="mp-cur-name">DWRR 101.9 OPM Gold</p>
-      <span class="mp-station-tag" id="mp-cur-tag">OPM · Love Songs · Filipino</span>
-      <p class="mp-status" id="mp-status">Connecting…</p>
-
-      <div class="mp-controls">
-        <button class="mp-play-btn" id="mp-play-btn" onclick="togglePlay()">▶</button>
-        <div class="mp-vol-wrap">
-          <span class="mp-vol-icon">🔈</span>
-          <input type="range" class="mp-vol" id="mp-vol" min="0" max="1" step="0.01" value="0.7" oninput="setVol(this.value)"/>
-          <span class="mp-vol-icon">🔊</span>
-        </div>
-      </div>
-
-      <!-- Station list -->
-
-    </div>
-  </div>
-</div>
 
 <script>
 /* ── MUSIC PLAYER ── */
@@ -1639,6 +1624,26 @@ audio.volume = 0.7;
 document.getElementById('mp-cur-name').textContent = SONG_NAME;
 document.getElementById('mp-cur-tag').textContent  = SONG_TAG;
 document.getElementById('mp-header-station').textContent = SONG_NAME;
+
+function dismissIntro(){
+  const el=document.getElementById('intro');
+  el.classList.add('hiding');
+  setTimeout(()=>{el.style.display='none';},900);
+}
+
+function openInvitation(){
+  dismissIntro();
+  document.getElementById('music-player').style.display='block';
+  audio.play().then(()=>{
+    isPlaying = true;
+    document.getElementById('mp-play-btn').textContent = '⏸';
+    document.getElementById('mp-icon').textContent = '♫';
+    document.getElementById('mp-eq').classList.remove('paused');
+    document.getElementById('mp-status').textContent = 'Now Playing';
+  }).catch(()=>{
+    document.getElementById('mp-status').textContent = 'Tap ▶ to play';
+  });
+}
 
 function togglePlay(){
   if(!isPlaying){
