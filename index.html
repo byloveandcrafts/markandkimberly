@@ -1578,61 +1578,6 @@ function openInvitation(){
 }
 </script>
 
-<!-- ══════════════════════ MUSIC PLAYER SCRIPT ══════════════════════ -->
-<script>
-/* ── MUSIC PLAYER ── */
-const SONG_URL = 'Tahanan.mp3'; // ← keep this MP3 in the same folder as the HTML
-const SONG_NAME = 'Our Song';
-const SONG_TAG  = 'Mark Anthony & Kimberly';
-
-let isPlaying = false;
-const audio = document.getElementById('radio-audio');
-audio.src = SONG_URL;
-audio.volume = 0.7;
-
-document.getElementById('mp-cur-name').textContent = SONG_NAME;
-document.getElementById('mp-cur-tag').textContent  = SONG_TAG;
-document.getElementById('mp-header-station').textContent = SONG_NAME;
-
-function togglePlay(){
-  if(!isPlaying){
-    audio.play().then(()=>{
-      isPlaying = true;
-      document.getElementById('mp-play-btn').textContent = '⏸';
-      document.getElementById('mp-icon').textContent = '♫';
-      document.getElementById('mp-eq').classList.remove('paused');
-      document.getElementById('mp-status').textContent = 'Now Playing';
-    }).catch(()=>{
-      document.getElementById('mp-status').textContent = 'Tap play to start';
-    });
-  } else {
-    audio.pause();
-    isPlaying = false;
-    document.getElementById('mp-play-btn').textContent = '▶';
-    document.getElementById('mp-icon').textContent = '♪';
-    document.getElementById('mp-eq').classList.add('paused');
-    document.getElementById('mp-status').textContent = 'Paused';
-  }
-}
-
-function setVol(v){ audio.volume = v; }
-
-function togglePlayer(){
-  document.getElementById('mp-wrap').classList.toggle('collapsed');
-}
-
-audio.addEventListener('error',   ()=>{ document.getElementById('mp-status').textContent = 'Unable to load audio'; });
-audio.addEventListener('waiting',  ()=>{ document.getElementById('mp-status').textContent = 'Loading…'; });
-audio.addEventListener('playing',  ()=>{ document.getElementById('mp-status').textContent = 'Now Playing'; });
-audio.addEventListener('ended',    ()=>{
-  isPlaying = false;
-  document.getElementById('mp-play-btn').textContent = '▶';
-  document.getElementById('mp-icon').textContent = '♪';
-  document.getElementById('mp-eq').classList.add('paused');
-  document.getElementById('mp-status').textContent = 'Ended';
-});
-</script>
-
 <!-- ══════════════════════ MUSIC PLAYER ══════════════════════ -->
 <div id="music-player">
   <audio id="radio-audio" preload="none"></audio>
@@ -1679,6 +1624,60 @@ audio.addEventListener('ended',    ()=>{
     </div>
   </div>
 </div>
+
+<script>
+/* ── MUSIC PLAYER ── */
+const SONG_URL  = 'Tahanan.mp3';
+const SONG_NAME = 'Tahanan (Wedding Version)';
+const SONG_TAG  = 'El Manu & Jessy Kang';
+
+let isPlaying = false;
+const audio = document.getElementById('radio-audio');
+audio.src = SONG_URL;
+audio.volume = 0.7;
+
+document.getElementById('mp-cur-name').textContent = SONG_NAME;
+document.getElementById('mp-cur-tag').textContent  = SONG_TAG;
+document.getElementById('mp-header-station').textContent = SONG_NAME;
+
+function togglePlay(){
+  if(!isPlaying){
+    audio.play().then(()=>{
+      isPlaying = true;
+      document.getElementById('mp-play-btn').textContent = '⏸';
+      document.getElementById('mp-icon').textContent = '♫';
+      document.getElementById('mp-eq').classList.remove('paused');
+      document.getElementById('mp-status').textContent = 'Now Playing';
+    }).catch(()=>{
+      document.getElementById('mp-status').textContent = 'Tap play to start';
+    });
+  } else {
+    audio.pause();
+    isPlaying = false;
+    document.getElementById('mp-play-btn').textContent = '▶';
+    document.getElementById('mp-icon').textContent = '♪';
+    document.getElementById('mp-eq').classList.add('paused');
+    document.getElementById('mp-status').textContent = 'Paused';
+  }
+}
+
+function setVol(v){ audio.volume = v; }
+
+function togglePlayer(){
+  document.getElementById('mp-wrap').classList.toggle('collapsed');
+}
+
+audio.addEventListener('error',  ()=>{ document.getElementById('mp-status').textContent = 'Unable to load audio'; });
+audio.addEventListener('waiting', ()=>{ document.getElementById('mp-status').textContent = 'Loading…'; });
+audio.addEventListener('playing', ()=>{ document.getElementById('mp-status').textContent = 'Now Playing'; });
+audio.addEventListener('ended',   ()=>{
+  isPlaying = false;
+  document.getElementById('mp-play-btn').textContent = '▶';
+  document.getElementById('mp-icon').textContent = '♪';
+  document.getElementById('mp-eq').classList.add('paused');
+  document.getElementById('mp-status').textContent = 'Ended';
+});
+</script>
 
 </body>
 </html>
