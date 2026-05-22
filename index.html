@@ -830,6 +830,7 @@ footer .f-crafted{
   width:280px;
   transition:all .4s cubic-bezier(.4,0,.2,1);
 }
+/* ── CHANGE 1: collapsed hides body, shrinks to icon-only square ── */
 .mp-wrap.collapsed .mp-body{display:none;}
 .mp-wrap.collapsed{width:56px;}
 
@@ -898,6 +899,7 @@ footer .f-crafted{
   letter-spacing:.02em;
 }
 
+/* ── CHANGE 2: volume removed — play button only ── */
 .mp-controls{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
 .mp-play-btn{
   width:38px;height:38px;border-radius:50%;
@@ -907,17 +909,6 @@ footer .f-crafted{
   transition:background .2s,transform .15s;
 }
 .mp-play-btn:hover{background:var(--gold);transform:scale(1.05);}
-.mp-vol-wrap{flex:1;display:flex;align-items:center;gap:8px;}
-.mp-vol-icon{font-size:12px;color:var(--text-dim);}
-.mp-vol{
-  flex:1;-webkit-appearance:none;appearance:none;
-  height:3px;background:var(--border2);border-radius:2px;cursor:pointer;outline:none;
-}
-.mp-vol::-webkit-slider-thumb{
-  -webkit-appearance:none;width:12px;height:12px;border-radius:50%;
-  background:var(--gold);cursor:pointer;transition:transform .15s;
-}
-.mp-vol::-webkit-slider-thumb:hover{transform:scale(1.3);}
 
 .mp-stations{display:flex;flex-direction:column;gap:4px;}
 .mp-station-btn{
@@ -1089,7 +1080,7 @@ footer .f-crafted{
     <div class="strip-item" data-label="November 8"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d0c0,#c8a890)"><span>K</span></div></div>
     <div class="strip-item" data-label="Forever"><div class="strip-ph" style="background:linear-gradient(135deg,#d0d8e8,#a8b8d0)"><span>♡</span></div></div>
     <div class="strip-item" data-label="Love Story"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d8c8,#c8b8a0)"><span>✦</span></div></div>
-    <!-- duplicates -->
+    <!-- duplicates for seamless loop -->
     <div class="strip-item" data-label="Mark & Kimberly"><div class="strip-ph" style="background:linear-gradient(135deg,#e8ddd0,#c8b89a)"><span>M</span></div></div>
     <div class="strip-item" data-label="Together"><div class="strip-ph" style="background:linear-gradient(135deg,#dde8d8,#b8cead)"><span>K</span></div></div>
     <div class="strip-item" data-label="#MarkAtKimHanggangGubat"><div class="strip-ph" style="background:linear-gradient(135deg,#e0d8e8,#c0b0d0)"><span>♡</span></div></div>
@@ -1102,7 +1093,6 @@ footer .f-crafted{
 </div>
 
 <!-- ══════════════════════ OUR STORY ══════════════════════ -->
-<!-- Story: full intro split -->
 <div id="story" class="reveal">
   <div class="story-split">
     <div class="story-img-col">
@@ -1475,55 +1465,6 @@ footer .f-crafted{
 </footer>
 
 <!-- ══════════════════════ SCRIPTS ══════════════════════ -->
-
-
-<!-- ══════════════════════ MUSIC PLAYER ══════════════════════ -->
-<div id="music-player">
-  <audio id="radio-audio" preload="none"></audio>
-  <div class="mp-wrap" id="mp-wrap">
-
-    <!-- Header / collapse toggle -->
-    <div class="mp-header" onclick="togglePlayer()">
-      <span class="mp-toggle-icon" id="mp-icon">♪</span>
-      <div class="mp-header-text">
-        <span class="mp-header-label">Now Playing</span>
-        <span class="mp-header-station" id="mp-header-station">Filipino Radio</span>
-      </div>
-      <span class="mp-chevron" id="mp-chevron">▾</span>
-    </div>
-
-    <!-- Expanded body -->
-    <div class="mp-body">
-      <!-- EQ visualizer -->
-      <div class="mp-eq paused" id="mp-eq">
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-        <div class="mp-eq-bar"></div>
-      </div>
-
-      <p class="mp-station-name" id="mp-cur-name">DWRR 101.9 OPM Gold</p>
-      <span class="mp-station-tag" id="mp-cur-tag">OPM · Love Songs · Filipino</span>
-      <p class="mp-status" id="mp-status">Connecting…</p>
-
-      <div class="mp-controls">
-        <button class="mp-play-btn" id="mp-play-btn" onclick="togglePlay()">▶</button>
-        <div class="mp-vol-wrap">
-          <span class="mp-vol-icon">🔈</span>
-          <input type="range" class="mp-vol" id="mp-vol" min="0" max="1" step="0.01" value="0.7" oninput="setVol(this.value)"/>
-          <span class="mp-vol-icon">🔊</span>
-        </div>
-      </div>
-
-      <!-- Station list -->
-
-    </div>
-  </div>
-</div>
-
 <script>
 /* ── SLIDESHOW ── */
 let cur=0;
@@ -1610,6 +1551,47 @@ function copyHashtag(){
 })();
 </script>
 
+<!-- ══════════════════════ MUSIC PLAYER ══════════════════════ -->
+<div id="music-player">
+  <audio id="radio-audio" preload="auto" loop></audio>
+  <!-- CHANGE 1: starts with "collapsed" class → only the ♪ icon box is visible -->
+  <div class="mp-wrap collapsed" id="mp-wrap">
+
+    <!-- Header / collapse toggle — this is ALL that's visible when collapsed -->
+    <div class="mp-header" onclick="togglePlayer()">
+      <span class="mp-toggle-icon" id="mp-icon">♪</span>
+      <div class="mp-header-text">
+        <span class="mp-header-label">Now Playing</span>
+        <span class="mp-header-station" id="mp-header-station">Filipino Radio</span>
+      </div>
+      <span class="mp-chevron" id="mp-chevron">▾</span>
+    </div>
+
+    <!-- Expanded body — hidden until user taps the icon -->
+    <div class="mp-body">
+      <div class="mp-eq paused" id="mp-eq">
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+        <div class="mp-eq-bar"></div>
+      </div>
+
+      <p class="mp-station-name" id="mp-cur-name">Tahanan (Wedding Version)</p>
+      <span class="mp-station-tag" id="mp-cur-tag">El Manu &amp; Jessy Kang</span>
+      <p class="mp-status" id="mp-status">Connecting…</p>
+
+      <!-- CHANGE 2: volume slider removed — play button only -->
+      <div class="mp-controls">
+        <button class="mp-play-btn" id="mp-play-btn" onclick="togglePlay()">▶</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <script>
 /* ── MUSIC PLAYER ── */
 const SONG_URL  = 'Tahanan.mp3';
@@ -1618,42 +1600,56 @@ const SONG_TAG  = 'El Manu & Jessy Kang';
 
 let isPlaying = false;
 const audio = document.getElementById('radio-audio');
-audio.src = SONG_URL;
 audio.volume = 0.7;
+audio.loop = true;
 
 document.getElementById('mp-cur-name').textContent = SONG_NAME;
 document.getElementById('mp-cur-tag').textContent  = SONG_TAG;
 document.getElementById('mp-header-station').textContent = SONG_NAME;
 
+function setPlayingUI(){
+  isPlaying = true;
+  document.getElementById('mp-play-btn').textContent = '\u23F8';
+  document.getElementById('mp-icon').textContent = '\u266B';
+  document.getElementById('mp-eq').classList.remove('paused');
+  document.getElementById('mp-status').textContent = 'Now Playing';
+}
+
 function dismissIntro(){
-  const el=document.getElementById('intro');
+  const el = document.getElementById('intro');
   el.classList.add('hiding');
-  setTimeout(()=>{el.style.display='none';},900);
+  setTimeout(() => { el.style.display = 'none'; }, 900);
 }
 
 function openInvitation(){
   dismissIntro();
-  document.getElementById('music-player').style.display='block';
-  audio.play().then(()=>{
-    isPlaying = true;
-    document.getElementById('mp-play-btn').textContent = '⏸';
-    document.getElementById('mp-icon').textContent = '♫';
-    document.getElementById('mp-eq').classList.remove('paused');
-    document.getElementById('mp-status').textContent = 'Now Playing';
-  }).catch(()=>{
-    document.getElementById('mp-status').textContent = 'Tap ▶ to play';
-  });
+  document.getElementById('music-player').style.display = 'block';
+
+  // Assign src INSIDE the user gesture so browsers allow play()
+  if(!audio.src || audio.src === window.location.href){
+    audio.src = SONG_URL;
+    audio.load();
+  }
+
+  const playPromise = audio.play();
+  if(playPromise !== undefined){
+    playPromise.then(() => {
+      setPlayingUI();
+    }).catch(() => {
+      document.getElementById('mp-status').textContent = 'Tap \u25B6 to play';
+    });
+  }
 }
 
 function togglePlay(){
   if(!isPlaying){
-    audio.play().then(()=>{
+    audio.play().then(() => {
       isPlaying = true;
       document.getElementById('mp-play-btn').textContent = '⏸';
       document.getElementById('mp-icon').textContent = '♫';
       document.getElementById('mp-eq').classList.remove('paused');
       document.getElementById('mp-status').textContent = 'Now Playing';
-    }).catch(()=>{
+    }).catch(() => {
       document.getElementById('mp-status').textContent = 'Tap play to start';
     });
   } else {
@@ -1666,22 +1662,13 @@ function togglePlay(){
   }
 }
 
-function setVol(v){ audio.volume = v; }
-
 function togglePlayer(){
   document.getElementById('mp-wrap').classList.toggle('collapsed');
 }
 
-audio.addEventListener('error',  ()=>{ document.getElementById('mp-status').textContent = 'Unable to load audio'; });
-audio.addEventListener('waiting', ()=>{ document.getElementById('mp-status').textContent = 'Loading…'; });
-audio.addEventListener('playing', ()=>{ document.getElementById('mp-status').textContent = 'Now Playing'; });
-audio.addEventListener('ended',   ()=>{
-  isPlaying = false;
-  document.getElementById('mp-play-btn').textContent = '▶';
-  document.getElementById('mp-icon').textContent = '♪';
-  document.getElementById('mp-eq').classList.add('paused');
-  document.getElementById('mp-status').textContent = 'Ended';
-});
+audio.addEventListener('error',   () => { document.getElementById('mp-status').textContent = 'Unable to load audio'; });
+audio.addEventListener('waiting',  () => { document.getElementById('mp-status').textContent = 'Loading…'; });
+audio.addEventListener('playing',  () => { document.getElementById('mp-status').textContent = 'Now Playing'; });
 </script>
 
 </body>
