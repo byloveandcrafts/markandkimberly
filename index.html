@@ -47,6 +47,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--serif);overflow-x:
   background:#0e0b08;overflow:hidden;
   display:flex;align-items:center;justify-content:center;cursor:pointer;
 }
+#intro-bg-photo{
+  position:absolute;inset:0;z-index:0;
+  background-size:cover;background-position:center;
+  opacity:0.75;
+  filter:brightness(0.65) saturate(0.85);
+}
 
 /* film grain overlay */
 #intro::before{
@@ -59,7 +65,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--serif);overflow-x:
 /* vignette */
 #intro::after{
   content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
-  background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 40%,rgba(0,0,0,0.75) 100%);
+  background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 40%,rgba(0,0,0,0.45) 100%);
 }
 
 /* letterbox bars */
@@ -132,8 +138,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--serif);overflow-x:
 }
 
 .intro-date{
-  font-family:var(--sc);font-size:8.5px;letter-spacing:.38em;
-  color:rgba(200,168,100,0.45);text-transform:uppercase;margin-bottom:44px;
+  font-family:var(--sc);font-size:12px;letter-spacing:.32em;
+  color:rgba(200,168,100,0.75);text-transform:uppercase;margin-bottom:44px;
   opacity:0;animation:fadeUp 1s ease 2.6s forwards;
 }
 
@@ -182,7 +188,7 @@ nav{
 .nav-left,.nav-right{display:flex;align-items:center;gap:30px;}
 .nav-center{font-family:var(--display);font-size:20px;font-style:italic;color:var(--dark);letter-spacing:.02em;}
 nav a{
-  font-family:var(--sc);font-size:8px;letter-spacing:.3em;
+  font-family:var(--sc);font-size:10px;letter-spacing:.3em;
   text-transform:uppercase;color:var(--text-dim);text-decoration:none;
   transition:color .2s;padding-bottom:3px;border-bottom:1px solid transparent;
 }
@@ -214,7 +220,10 @@ nav a:hover{color:var(--gold);border-bottom-color:rgba(160,120,64,0.4);}
   position:absolute;inset:0;
   background-size:cover;background-position:center;
 }
-/* Gradient overlays per slide for text legibility */
+.slide-bg img{
+  width:100%;height:100%;object-fit:cover;object-position:center;display:block;
+}
+/* Fallback gradients if image missing */
 .slide:nth-child(1) .slide-bg{background:linear-gradient(160deg,#e8ddd0 0%,#d4c5b0 50%,#c5b49a 100%);}
 .slide:nth-child(2) .slide-bg{background:linear-gradient(140deg,#e0d8c8 0%,#cbbfa8 50%,#b8a88e 100%);}
 .slide:nth-child(3) .slide-bg{background:linear-gradient(170deg,#d8e0d0 0%,#c4d0b8 50%,#a8beA0 100%);}
@@ -243,8 +252,8 @@ nav a:hover{color:var(--gold);border-bottom-color:rgba(160,120,64,0.4);}
 }
 
 .hero-eyebrow{
-  font-family:var(--sc);font-size:9px;letter-spacing:.45em;
-  color:rgba(245,237,220,0.75);margin-bottom:24px;
+  font-family:var(--sc);font-size:12px;letter-spacing:.4em;
+  color:rgba(245,237,220,0.8);margin-bottom:24px;
   text-shadow:0 1px 8px rgba(0,0,0,0.3);
 }
 .hero-names{
@@ -268,13 +277,13 @@ nav a:hover{color:var(--gold);border-bottom-color:rgba(160,120,64,0.4);}
 .hero-rule span{color:var(--gold-pale);font-size:10px;}
 .hero-hashtag{
   font-family:var(--display);font-style:italic;
-  font-size:clamp(15px,2.2vw,19px);
-  color:rgba(232,213,168,0.85);margin-bottom:12px;
+  font-size:clamp(20px,3vw,28px);
+  color:rgba(232,213,168,0.9);margin-bottom:14px;
   text-shadow:0 2px 12px rgba(0,0,0,0.3);
 }
 .hero-date{
-  font-family:var(--sc);font-size:9px;letter-spacing:.36em;
-  color:rgba(232,213,168,0.65);
+  font-family:var(--sc);font-size:13px;letter-spacing:.3em;
+  color:rgba(232,213,168,0.8);
   text-shadow:0 1px 8px rgba(0,0,0,0.25);
 }
 
@@ -315,26 +324,36 @@ nav a:hover{color:var(--gold);border-bottom-color:rgba(160,120,64,0.4);}
    PHOTO STRIP
 ════════════════════════════════════════ */
 .strip-wrap{
-  position:relative;overflow:hidden;padding:6px 0;
+  position:relative;overflow:hidden;padding:8px 0;
   background:var(--bg2);
   border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
 }
-.strip{display:flex;gap:6px;width:max-content;animation:stripRoll 40s linear infinite;}
+.strip{display:flex;gap:8px;width:max-content;animation:stripRoll 30s linear infinite;}
 .strip:hover{animation-play-state:paused;}
 @keyframes stripRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.strip-item{width:230px;height:155px;flex-shrink:0;overflow:hidden;position:relative;}
+.strip-item{
+  flex-shrink:0;overflow:hidden;position:relative;
+  background:#1a1410;
+}
+/* Landscape items */
+.strip-item.ls{width:340px;height:230px;}
+/* Portrait items */
+.strip-item.pt{width:175px;height:230px;}
+.strip-item img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  display:block;transition:transform .6s ease;
+}
+.strip-item:hover img{transform:scale(1.06);}
 .strip-item::after{
   content:attr(data-label);position:absolute;inset:0;
   display:flex;align-items:flex-end;justify-content:center;
   padding-bottom:10px;
-  background:linear-gradient(transparent 55%,rgba(44,34,22,0.45));
+  background:linear-gradient(transparent 55%,rgba(44,34,22,0.5));
   font-family:var(--display);font-style:italic;font-size:12px;
-  color:rgba(245,237,220,0.8);letter-spacing:.04em;
+  color:rgba(245,237,220,0.85);letter-spacing:.04em;
   opacity:0;transition:opacity .35s;
 }
 .strip-item:hover::after{opacity:1;}
-.strip-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
-.strip-ph span{font-family:var(--display);font-size:26px;font-style:italic;color:rgba(160,120,64,0.25);}
 
 /* ════════════════════════════════════════
    SHARED
@@ -343,16 +362,16 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
 .inner{max-width:960px;margin:0 auto;width:100%;}
 
 .s-label{
-  font-family:var(--sc);font-size:8.5px;letter-spacing:.45em;
+  font-family:var(--sc);font-size:11px;letter-spacing:.45em;
   text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block;
 }
 .s-title{
   font-family:var(--display);font-style:italic;
-  font-size:clamp(34px,5.5vw,56px);
+  font-size:clamp(38px,5.5vw,60px);
   color:var(--dark);line-height:1.1;margin-bottom:16px;
 }
 .s-body{
-  font-family:var(--serif);font-size:20px;
+  font-family:var(--serif);font-size:22px;
   color:var(--text-dim);line-height:1.9;max-width:620px;margin:0 auto;
 }
 .divider{
@@ -381,11 +400,17 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
 .story-split{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;}
 .story-img-col{
   position:relative;overflow:hidden;
-  background:linear-gradient(160deg,var(--bg3) 0%,var(--bg2) 100%);
+  background:#1a1410;
 }
 .story-img-col::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(to right,transparent 70%,var(--bg) 100%);
+  pointer-events:none;z-index:1;
+}
+.story-photo{
+  width:100%;height:100%;min-height:600px;
+  object-fit:cover;object-position:center;
+  display:block;
 }
 .story-ph{
   width:100%;height:100%;min-height:600px;
@@ -508,23 +533,29 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
 }
 .ev-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(44,34,22,0.1);}
 .ev-photo{
-  height:200px;overflow:hidden;
+  height:220px;overflow:hidden;
   display:flex;align-items:center;justify-content:center;font-size:52px;
+  position:relative;
 }
+.ev-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  display:block;transition:transform .6s ease;
+}
+.ev-card:hover .ev-photo img{transform:scale(1.05);}
 .ev-card:nth-child(1) .ev-photo{background:linear-gradient(160deg,#e8ddd0,#c8b89a);}
 .ev-card:nth-child(2) .ev-photo{background:linear-gradient(160deg,#dde8d8,#b8cead);}
 .ev-body{padding:28px 28px 0;}
 .ev-type{font-family:var(--sc);font-size:8px;letter-spacing:.35em;color:var(--gold);margin-bottom:10px;}
-.ev-name{font-family:var(--display);font-size:22px;font-style:italic;color:var(--dark);margin-bottom:10px;line-height:1.3;}
-.ev-detail{font-family:var(--serif);font-size:17px;color:var(--text-dim);line-height:1.75;}
+.ev-name{font-family:var(--display);font-size:27px;font-style:italic;color:var(--dark);margin-bottom:10px;line-height:1.3;}
+.ev-detail{font-family:var(--serif);font-size:21px;color:var(--text-dim);line-height:1.75;}
 .ev-footer{
   margin-top:auto;padding:18px 28px 24px;
   border-top:1px solid var(--border2);
   display:flex;flex-direction:column;align-items:flex-start;gap:10px;
 }
-.ev-time{font-family:var(--sc);font-size:9px;letter-spacing:.22em;color:var(--mid);}
+.ev-time{font-family:var(--sc);font-size:13px;letter-spacing:.22em;color:var(--mid);}
 .map-link{
-  font-family:var(--sc);font-size:8px;letter-spacing:.22em;
+  font-family:var(--sc);font-size:10px;letter-spacing:.22em;
   color:var(--accent);text-decoration:none;
   border-bottom:1px solid rgba(184,112,80,0.3);padding-bottom:2px;
   transition:opacity .2s;
@@ -556,7 +587,7 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
 .tl-item:nth-child(odd) .tl-content{margin-right:32px;text-align:right;}
 .tl-item:nth-child(even) .tl-content{margin-left:32px;text-align:left;}
 .tl-time{font-family:var(--sc);font-size:9px;letter-spacing:.22em;color:var(--gold);margin-bottom:6px;}
-.tl-event{font-family:var(--display);font-size:20px;font-style:italic;color:var(--dark);}
+.tl-event{font-family:var(--display);font-size:22px;font-style:italic;color:var(--dark);}
 @media(max-width:600px){
   .timeline::before{left:12px;transform:none;}
   .tl-item,.tl-item:nth-child(odd){flex-direction:row;padding-left:36px;}
@@ -591,7 +622,7 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
   color:var(--gold);text-transform:uppercase;margin-bottom:18px;
 }
 .parent-names{
-  font-family:var(--display);font-size:20px;font-style:italic;
+  font-family:var(--display);font-size:24px;font-style:italic;
   color:var(--dark);line-height:2;
 }
 @media(max-width:600px){
@@ -610,7 +641,7 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
 .sp-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border2);}
 .sp-row:last-child{border-bottom:none;}
 .sp-col{
-  font-family:var(--display);font-size:20px;font-style:italic;
+  font-family:var(--display);font-size:22px;font-style:italic;
   color:var(--dark);text-align:center;padding:15px 22px;line-height:1.4;
   transition:color .2s,background .2s;background:var(--surface);
 }
@@ -629,7 +660,7 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
   padding-bottom:12px;border-bottom:1px solid var(--border2);text-align:center;
 }
 .ent-group p,.ent-group li{
-  font-family:var(--display);font-size:19px;font-style:italic;
+  font-family:var(--display);font-size:21px;font-style:italic;
   color:var(--dark);line-height:2;list-style:none;text-align:center;
 }
 .ent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:44px;margin-top:52px;}
@@ -667,13 +698,13 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
 .sw-label{font-family:var(--sc);font-size:7.5px;letter-spacing:.18em;color:rgba(200,168,100,0.6);text-align:center;max-width:70px;}
 .attire-pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px;position:relative;z-index:1;}
 .attire-pill{
-  font-family:var(--sc);font-size:8.5px;letter-spacing:.22em;
+  font-family:var(--sc);font-size:11px;letter-spacing:.22em;
   color:#f5edd8;border:1px solid rgba(200,168,100,0.3);
   padding:10px 26px;background:rgba(200,168,100,0.06);
 }
 .no-pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px;position:relative;z-index:1;}
 .no-pill{
-  font-family:var(--sc);font-size:8.5px;letter-spacing:.22em;
+  font-family:var(--sc);font-size:11px;letter-spacing:.22em;
   color:rgba(184,112,80,0.7);border:1px solid rgba(184,112,80,0.3);
   padding:9px 22px;text-decoration:line-through;opacity:.75;
 }
@@ -690,7 +721,7 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
 .gift-card::before{content:'';position:absolute;top:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);}
 .gift-card::after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);}
 .gift-icon{font-size:32px;margin-bottom:22px;display:block;}
-.gift-text{font-family:var(--display);font-size:19px;font-style:italic;color:var(--text-dim);line-height:2;text-align:center;}
+.gift-text{font-family:var(--display);font-size:21px;font-style:italic;color:var(--text-dim);line-height:2;text-align:center;}
 @media(max-width:600px){.gift-card{padding:36px 24px;}}
 
 /* ════════════════════════════════════════
@@ -710,7 +741,7 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
 .pb-sep{height:120px;background:linear-gradient(180deg,transparent,var(--border),transparent);}
 .pb-icon{font-size:36px;margin-bottom:18px;display:block;}
 .pb-title{font-family:var(--display);font-size:22px;font-style:italic;color:var(--dark);margin-bottom:12px;}
-.pb-text{font-family:var(--serif);font-size:17.5px;color:var(--text-dim);line-height:1.85;}
+.pb-text{font-family:var(--serif);font-size:20px;color:var(--text-dim);line-height:1.85;}
 @media(max-width:600px){
   .photo-band{grid-template-columns:1fr;gap:32px;}
   .pb-sep{display:none;}
@@ -724,14 +755,14 @@ section{padding:96px 24px;text-align:center;max-width:100%;}
 .faq-list{max-width:700px;margin:48px auto 0;text-align:left;}
 .faq-item{border-bottom:1px solid var(--border2);padding:22px 0;}
 .faq-q{
-  font-family:var(--display);font-size:20px;font-style:italic;
+  font-family:var(--display);font-size:22px;font-style:italic;
   color:var(--dark);cursor:pointer;
   display:flex;justify-content:space-between;align-items:center;gap:16px;
 }
 .faq-q::after{content:'+';font-family:var(--sans);font-size:20px;color:var(--gold);flex-shrink:0;font-style:normal;transition:transform .3s;}
 .faq-item.open .faq-q::after{transform:rotate(45deg);}
 .faq-a{
-  font-family:var(--serif);font-size:19px;
+  font-family:var(--serif);font-size:22px;
   color:var(--text-dim);line-height:1.85;
   max-height:0;overflow:hidden;transition:max-height .45s ease,padding .3s;
 }
@@ -939,6 +970,9 @@ footer .f-crafted{
 
 <!-- ══════════════════════ INTRO ══════════════════════ -->
 <div id="intro" onclick="openInvitation()">
+  <!-- photo.jpg as full landscape background -->
+  <div id="intro-bg-photo" style="background-image:url('photo.jpg');"></div>
+
   <div class="intro-bar top"></div>
   <div class="intro-bar bottom"></div>
   <div class="intro-light"></div>
@@ -998,25 +1032,36 @@ footer .f-crafted{
 
   <!-- Slide 1 -->
   <div class="slide active">
-    <div class="slide-bg"></div>
+    <div class="slide-bg">
+      <img src="11.jpg" alt="Hero background 1">
+    </div>
     <div class="slide-texture"></div>
     <div class="slide-vignette"></div>
   </div>
+
   <!-- Slide 2 -->
   <div class="slide">
-    <div class="slide-bg"></div>
+    <div class="slide-bg">
+      <img src="12.jpg" alt="Hero background 2">
+    </div>
     <div class="slide-texture"></div>
     <div class="slide-vignette"></div>
   </div>
+
   <!-- Slide 3 -->
   <div class="slide">
-    <div class="slide-bg"></div>
+    <div class="slide-bg">
+      <img src="13.jpg" alt="Hero background 3">
+    </div>
     <div class="slide-texture"></div>
     <div class="slide-vignette"></div>
   </div>
+
   <!-- Slide 4 -->
   <div class="slide">
-    <div class="slide-bg"></div>
+    <div class="slide-bg">
+      <img src="14.jpg" alt="Hero background 4">
+    </div>
     <div class="slide-texture"></div>
     <div class="slide-vignette"></div>
   </div>
@@ -1067,28 +1112,32 @@ footer .f-crafted{
     <div class="s-dot" onclick="goSlide(2)"></div>
     <div class="s-dot" onclick="goSlide(3)"></div>
   </div>
+
 </section>
 
 <!-- ══════════════════════ PHOTO STRIP ══════════════════════ -->
 <div class="strip-wrap">
   <div class="strip" id="strip">
-    <div class="strip-item" data-label="Mark & Kimberly"><div class="strip-ph" style="background:linear-gradient(135deg,#e8ddd0,#c8b89a)"><span>M</span></div></div>
-    <div class="strip-item" data-label="Together"><div class="strip-ph" style="background:linear-gradient(135deg,#dde8d8,#b8cead)"><span>K</span></div></div>
-    <div class="strip-item" data-label="#MarkAtKimHanggangGubat"><div class="strip-ph" style="background:linear-gradient(135deg,#e0d8e8,#c0b0d0)"><span>♡</span></div></div>
-    <div class="strip-item" data-label="Calaruega"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d8c0,#c8b890)"><span>✦</span></div></div>
-    <div class="strip-item" data-label="Save the Date"><div class="strip-ph" style="background:linear-gradient(135deg,#d8e8d0,#b0c8a8)"><span>M</span></div></div>
-    <div class="strip-item" data-label="November 8"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d0c0,#c8a890)"><span>K</span></div></div>
-    <div class="strip-item" data-label="Forever"><div class="strip-ph" style="background:linear-gradient(135deg,#d0d8e8,#a8b8d0)"><span>♡</span></div></div>
-    <div class="strip-item" data-label="Love Story"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d8c8,#c8b8a0)"><span>✦</span></div></div>
-    <!-- duplicates for seamless loop -->
-    <div class="strip-item" data-label="Mark & Kimberly"><div class="strip-ph" style="background:linear-gradient(135deg,#e8ddd0,#c8b89a)"><span>M</span></div></div>
-    <div class="strip-item" data-label="Together"><div class="strip-ph" style="background:linear-gradient(135deg,#dde8d8,#b8cead)"><span>K</span></div></div>
-    <div class="strip-item" data-label="#MarkAtKimHanggangGubat"><div class="strip-ph" style="background:linear-gradient(135deg,#e0d8e8,#c0b0d0)"><span>♡</span></div></div>
-    <div class="strip-item" data-label="Calaruega"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d8c0,#c8b890)"><span>✦</span></div></div>
-    <div class="strip-item" data-label="Save the Date"><div class="strip-ph" style="background:linear-gradient(135deg,#d8e8d0,#b0c8a8)"><span>M</span></div></div>
-    <div class="strip-item" data-label="November 8"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d0c0,#c8a890)"><span>K</span></div></div>
-    <div class="strip-item" data-label="Forever"><div class="strip-ph" style="background:linear-gradient(135deg,#d0d8e8,#a8b8d0)"><span>♡</span></div></div>
-    <div class="strip-item" data-label="Love Story"><div class="strip-ph" style="background:linear-gradient(135deg,#e8d8c8,#c8b8a0)"><span>✦</span></div></div>
+    <!-- Set 1 -->
+    <div class="strip-item ls" data-label="Mark & Kimberly"><img src="photo1.jpg" alt="Mark & Kimberly"></div>
+    <div class="strip-item ls" data-label="Together"><img src="photo2.jpeg" alt="Together" style="object-position:top center;"></div>
+    <div class="strip-item pt" data-label="#MarkAtKimHanggangGubat"><img src="photo3.jpg" alt="M&K" style="object-position:bottom center;"></div>
+    <div class="strip-item ls" data-label="Calaruega"><img src="photo4.jpg" alt="Calaruega" style="object-position:right center;"></div>
+    <div class="strip-item pt" data-label="Save the Date"><img src="photo5.jpg" alt="Save the Date" style="object-position:left center;"></div>
+    <div class="strip-item pt" data-label="November 8"><img src="photo6.jpg" alt="November 8" style="object-position:center 30%;"></div>
+    <div class="strip-item pt" data-label="Forever"><img src="photo18.jpg" alt="Forever" style="object-position:center 70%;"></div>
+    <div class="strip-item pt" data-label="Love Story"><img src="photo7.jpg" alt="Love Story" style="object-position:center top;"></div>
+    <div class="strip-item pt" data-label="Twenty Years"><img src="photo8.jpg" alt="Twenty Years" style="object-position:center 40%;"></div>
+    <!-- Set 2 — exact duplicate for seamless infinite loop -->
+    <div class="strip-item ls" data-label="Mark & Kimberly"><img src="photo9.jpg" alt="Mark & Kimberly"></div>
+    <div class="strip-item ls" data-label="Together"><img src="photo10.jpg" alt="Together" style="object-position:top center;"></div>
+    <div class="strip-item pt" data-label="#MarkAtKimHanggangGubat"><img src="photo11.jpg" alt="M&K" style="object-position:bottom center;"></div>
+    <div class="strip-item ls" data-label="Calaruega"><img src="photo12.jpg" alt="Calaruega" style="object-position:right center;"></div>
+    <div class="strip-item ls" data-label="Save the Date"><img src="photo13.jpg" alt="Save the Date" style="object-position:left center;"></div>
+    <div class="strip-item ls" data-label="November 8"><img src="photo14.jpg" alt="November 8" style="object-position:center 30%;"></div>
+    <div class="strip-item ls" data-label="Forever"><img src="photo15.jpg" alt="Forever" style="object-position:center 70%;"></div>
+    <div class="strip-item pt" data-label="Love Story"><img src="photo16.jpg" alt="Love Story" style="object-position:center top;"></div>
+    <div class="strip-item ls" data-label="Twenty Years"><img src="photo17.jpg" alt="Twenty Years" style="object-position:center 40%;"></div>
   </div>
 </div>
 
@@ -1096,7 +1145,7 @@ footer .f-crafted{
 <div id="story" class="reveal">
   <div class="story-split">
     <div class="story-img-col">
-      <div class="story-ph"><span>M &amp; K</span></div>
+      <img src="image1.jpg" alt="Mark Anthony & Kimberly" class="story-photo">
     </div>
     <div class="story-text-col">
       <span class="s-label">How It All Began</span>
@@ -1211,7 +1260,7 @@ footer .f-crafted{
   <div class="divider"><span>✦</span></div>
   <div class="event-row inner">
     <div class="ev-card">
-      <div class="ev-photo">⛪</div>
+      <div class="ev-photo"><img src="chapel.jpg" alt="Chapel of the Transfiguration" style="object-position:center;"></div>
       <div class="ev-body">
         <p class="ev-type">Holy Matrimony</p>
         <h3 class="ev-name">Chapel of the Transfiguration</h3>
@@ -1223,7 +1272,7 @@ footer .f-crafted{
       </div>
     </div>
     <div class="ev-card">
-      <div class="ev-photo">🕊</div>
+      <div class="ev-photo"><img src="venue.jpg" alt="Palacio Crystal Del Aquila" style="object-position:center 60%;"></div>
       <div class="ev-body">
         <p class="ev-type">Wedding Reception</p>
         <h3 class="ev-name">Palacio Crystal Del Aquila</h3>
@@ -1266,7 +1315,7 @@ footer .f-crafted{
     <div class="parents-divider"></div>
     <div class="parent-card">
       <p class="parent-role">Parents of the Groom</p>
-      <p class="parent-names">Reynaldo Gubat<br/>and<br/>Delia Gubat</p>
+      <p class="parent-names">Reynaldo Gubat<br/>and<br/>Delia Gubat <span style="font-size:0.75em;color:#2c2216;font-style:normal;opacity:0.7;">✝</span></p>
     </div>
   </div>
 </section>
@@ -1324,7 +1373,6 @@ footer .f-crafted{
 <!-- ══════════════════════ DRESS CODE ══════════════════════ -->
 <section id="dresscode" class="reveal">
   <div class="inner" style="position:relative;z-index:1;text-align:center;">
-    <span class="s-label">Attire Guide</span>
     <h2 class="s-title">Dress Code</h2>
     <div style="display:flex;align-items:center;gap:14px;margin:28px auto;max-width:480px;">
       <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,100,0.3),transparent);"></div>
@@ -1356,6 +1404,15 @@ footer .f-crafted{
       <span class="no-pill">Ivory</span>
       <span class="no-pill">Dark Colors</span>
       <span class="no-pill">Denim</span>
+    </div>
+
+    <!-- Attire guide portrait photo — below "Please Avoid" -->
+    <div style="margin:52px auto 0;max-width:360px;position:relative;overflow:hidden;">
+      <img src="attire1.png" alt="Attire Inspiration" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 30%;display:block;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(44,34,22,0.15),rgba(44,34,22,0.0) 40%,rgba(44,34,22,0.0) 60%,rgba(44,34,22,0.4));pointer-events:none;"></div>
+      <div style="position:absolute;bottom:20px;left:0;right:0;text-align:center;">
+        <span style="font-family:'Playfair Display SC',serif;font-size:9px;letter-spacing:.45em;color:rgba(245,237,220,0.85);text-transform:uppercase;">Attire Guide</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1397,11 +1454,11 @@ footer .f-crafted{
   <div class="faq-list">
     <div class="faq-item">
       <div class="faq-q">Where is the ceremony held?</div>
-      <div class="faq-a">The ceremony will be held at the Chapel of the Transfiguration, Calaruega, 4231 Caleruega Road, Nasugbu, Batangas, Philippines — beginning at 6:00 PM.</div>
+      <div class="faq-a">The ceremony will be held at the Chapel of the Transfiguration, Calaruega, 4231 Caleruega Road, Nasugbu, Batangas, Philippines. Entourage and guest arrival is at 5:00 PM, and the ceremony begins at 6:00 PM.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Where is the reception?</div>
-      <div class="faq-a">The reception will be at Palacio Crystal Del Aquila, Happy Rd, Kaybagal South, Tagaytay City, 4120 Cavite. Guest arrival begins at 5:00 PM, ceremony at 6:00 PM, cocktail hour at 7:30 PM, dinner at 8:30 PM, and after party at 10:30 PM.</div>
+      <div class="faq-a">The reception will be at Palacio Crystal Del Aquila, Happy Rd, Kaybagal South, Tagaytay City, 4120 Cavite. The program flows as follows: Ceremony at 6:00 PM, cocktail hour at 7:30 PM, dinner at 8:30 PM, and after party at 10:30 PM.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What is the dress code?</div>
@@ -1417,7 +1474,7 @@ footer .f-crafted{
     </div>
     <div class="faq-item">
       <div class="faq-q">Can I bring a plus-one?</div>
-      <div class="faq-a">If your invitation includes a plus-one, it will be reflected on your RSVP. Thank you for understanding our limited seating.</div>
+      <div class="faq-a">Due to capacity limitations, we are only able to accommodate the guests officially listed on the invitation. Thank you for your kind understanding.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Should I fill out the RSVP if I can't attend?</div>
